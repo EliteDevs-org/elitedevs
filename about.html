@@ -10,29 +10,26 @@
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
-    <link 
-      rel="stylesheet" 
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <link 
-      rel="stylesheet" 
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
     />
     <link rel="stylesheet" href="styles.css" />
-    
+
     <style>
-      /* --- Fix for Overlapping Animations --- */
-      /* Overrides the global body slide to prevent double-sliding with AOS */
       body {
         animation: smoothFadeIn 0.4s ease-out forwards !important;
-        opacity: 0; /* Starts hidden */
+        opacity: 0;
       }
       @keyframes smoothFadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
       }
 
-      /* --- Dynamic Background --- */
       body {
         background: linear-gradient(-45deg, #f8f9fa, #eef2f5, #e0e7ee, #f3f0f5);
         background-size: 400% 400%;
@@ -44,7 +41,7 @@
         content: '';
         position: fixed;
         inset: 0;
-        background-image: 
+        background-image:
           linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
           linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
         background-size: 40px 40px;
@@ -68,67 +65,271 @@
       .bg-shape.s2 { background: rgba(74, 155, 159, 0.5); width: 500px; height: 500px; top: 40%; right: -10%; }
       .bg-shape.s3 { background: rgba(217, 118, 52, 0.4); width: 300px; height: 300px; bottom: -5%; left: 20%; }
 
-      /* --- Layout Fixes --- */
       .site-header.about-header {
         min-height: auto !important;
-        padding: 8rem 2rem 3rem !important;
+        padding: 7rem 2rem 2rem !important;
         background: transparent !important;
         border-bottom: none;
         text-align: center;
       }
 
       .about-header h1 {
-        background: linear-gradient(135deg, #111 0%, #6B9DC5 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #1a1a1a;
         font-size: clamp(2.5rem, 8vw, 4rem);
+        letter-spacing: -0.02em;
+      }
+      .about-header h1 .underline {
+        display: inline-block;
+        background-image: linear-gradient(transparent 70%, rgba(217,118,52,0.35) 70%);
+        background-repeat: no-repeat;
+        padding: 0 0.1em;
       }
 
-      .text-columns {
+      .hero-photos {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        margin-bottom: 3rem;
+        grid-template-columns: 1.6fr 1fr;
+        grid-template-rows: 180px 120px;
+        gap: 12px;
+        max-width: 960px;
+        margin: 3rem auto 0;
+        text-align: left;
+      }
+      .hero-photos .photo {
+        background-size: cover;
+        background-position: center;
+        border: 1px solid #e9e6df;
+      }
+      .hero-photos .p1 {
+        grid-row: 1 / span 2;
+        background-image: linear-gradient(120deg, rgba(0,0,0,0.05), rgba(0,0,0,0.0)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=70');
+      }
+      .hero-photos .p2 {
+        background-image: linear-gradient(120deg, rgba(0,0,0,0.05), rgba(0,0,0,0.0)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=70');
+      }
+      .hero-photos .p3 {
+        background-image: linear-gradient(120deg, rgba(0,0,0,0.05), rgba(0,0,0,0.0)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=70');
       }
 
-      @media (max-width: 768px) {
-        .text-columns {
-          grid-template-columns: 1fr;
-          gap: 2rem;
+      @media (max-width: 720px) {
+        .hero-photos {
+          grid-template-columns: 2fr 1fr;
+          grid-template-rows: 140px 100px;
         }
       }
 
-      .about-grid.full-width {
+      .story-block {
+        max-width: 760px;
+        margin: 0 auto 4rem;
+        font-size: 1.05rem;
+        line-height: 1.85;
+        color: #2a2a2a;
+      }
+      .story-block p { margin: 0 0 1.1rem 0; }
+      .story-block p:first-of-type::first-letter {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 3.5rem;
+        float: left;
+        line-height: 0.9;
+        padding: 0.25rem 0.75rem 0 0;
+        color: #D97634;
+      }
+
+      .what-we-build {
+        max-width: 1100px;
+        margin: 0 auto 5rem;
+      }
+      .what-we-build h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+      }
+      .what-we-build .sub {
+        text-align: center;
+        color: #555;
+        margin-bottom: 2.5rem;
+      }
+      .examples-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
-        margin-top: 0;
+      }
+      .example {
+        background: #fffdf9;
+        border: 1px solid #e7e3da;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .example .thumb {
+        aspect-ratio: 16 / 9;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        border-bottom: 1px solid #e7e3da;
+      }
+      .example .thumb .tag {
+        position: absolute;
+        top: 0.7rem;
+        left: 0.7rem;
+        background: #1a1a1a;
+        color: #fff;
+        font-weight: 600;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        z-index: 1;
+      }
+      .example .body { padding: 1.4rem 1.5rem 1.6rem; }
+      .example h3 { margin: 0 0 0.5rem; font-size: 1.2rem; }
+      .example p { margin: 0 0 1rem; color: #555; line-height: 1.55; font-size: 0.95rem; }
+      .example .link {
+        font-weight: 600;
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #1a1a1a;
+        padding-bottom: 2px;
+      }
+      .example .link:hover { color: #D97634; border-bottom-color: #D97634; }
+
+      .thumb-brokersim { background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&w=900&q=70'); background-blend-mode: multiply; }
+      .thumb-tabsorter { background-color: #f3efe8; }
+      .thumb-humantyper { background-color: #1a1a1a; }
+      .thumb-focus { background-color: #2c2c2c; }
+      .thumb-swapspot { background-color: #2C5F5D; }
+      .thumb-studymaster { background-color: #f3efe8; }
+
+      .thumb-svg {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.85;
       }
 
-      .about-item, .team-card, .value-card {
-        background: rgba(255, 255, 255, 0.8) !important;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,1) !important;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04) !important;
-        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      .team-section { max-width: 1100px; margin: 0 auto 5rem; }
+      .team-section h2 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
       }
-
-      .about-item:hover, .team-card:hover, .value-card:hover {
-        transform: translateY(-5px) !important;
-        box-shadow: 0 12px 40px rgba(107, 157, 197, 0.15) !important;
+      .team-section .sub { text-align: center; color: #555; margin-bottom: 2.5rem; }
+      .teams-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
       }
+      @media (max-width: 760px) { .teams-grid { grid-template-columns: 1fr; } }
+      .team-card {
+        background: #fffdf9;
+        border: 1px solid #e7e3da;
+        padding: 0;
+        overflow: hidden;
+      }
+      .team-card .portrait {
+        aspect-ratio: 16 / 7;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      .team-card .portrait .name {
+        position: absolute;
+        bottom: 0.9rem;
+        left: 1.2rem;
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.6rem;
+        text-shadow: 0 2px 14px rgba(0,0,0,0.4);
+      }
+      .team-card .portrait .role {
+        position: absolute;
+        bottom: 0.7rem;
+        right: 1.2rem;
+        color: #fff;
+        font-size: 0.78rem;
+        background: rgba(0,0,0,0.55);
+        padding: 0.25rem 0.7rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .team-card .body { padding: 1.4rem 1.6rem 1.7rem; }
+      .team-card .body p { line-height: 1.65; color: #333; margin: 0 0 1rem; }
+      .team-card .body ul { padding-left: 1.1rem; margin: 0; color: #444; line-height: 1.7; }
+      .team-card .body ul li { margin-bottom: 0.25rem; }
+      .portrait-dima { background-image: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.45) 100%), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=70'); }
+      .portrait-pablo { background-image: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.45) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=70'); }
 
-      .about-item { border-top: 4px solid transparent !important; }
-      .about-item:nth-child(1) { border-top-color: #9B6BA8 !important; }
-      .about-item:nth-child(2) { border-top-color: #4A9B9F !important; }
-      .about-item:nth-child(3) { border-top-color: #D97634 !important; }
+      .how-section { max-width: 1100px; margin: 0 auto 5rem; }
+      .how-section h2 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+      .how-section .sub { text-align: center; color: #555; margin-bottom: 2.5rem; }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+      .step {
+        background: transparent;
+        padding: 0 1.4rem 1.4rem 0;
+        border-left: 1px solid #1a1a1a;
+        padding-left: 1.4rem;
+        position: relative;
+      }
+      .step .num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.2rem;
+        color: #D97634;
+        line-height: 1;
+      }
+      .step h3 { margin: 0.4rem 0 0.6rem; font-size: 1.2rem; }
+      .step p { margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem; }
 
-      .team-badge.zoande { background: linear-gradient(135deg, #4A9B9F, #2D8659); }
-      .team-badge.dh4410 { background: linear-gradient(135deg, #9B6BA8, #E07856); }
+      .quote-band {
+        max-width: 820px;
+        margin: 0 auto 5rem;
+        text-align: left;
+        padding: 0 1.5rem;
+        position: relative;
+      }
+      .quote-band blockquote {
+        font-size: 1.8rem;
+        line-height: 1.35;
+        margin: 0;
+        color: #1a1a1a;
+        font-weight: 500;
+        font-family: 'Sora', sans-serif;
+        letter-spacing: -0.01em;
+      }
+      .quote-band .quote-author { display: block; margin-top: 1.2rem; color: #777; font-size: 0.9rem; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
+
+      .cta-section {
+        max-width: 1100px;
+        margin: 0 auto 4rem;
+        text-align: left;
+        background: #1a1a1a;
+        color: #f3efe8;
+        padding: 3.5rem 3rem;
+        border: none;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .cta-section h2 { color: #f3efe8 !important; font-size: 2rem; }
+      .cta-section p { color: #c8c4ba !important; }
+      .cta-section .cta-actions { justify-content: flex-end !important; }
+      @media (max-width: 720px) {
+        .cta-section { grid-template-columns: 1fr; padding: 2.5rem 1.8rem; text-align: center; }
+        .cta-section .cta-actions { justify-content: center !important; }
+      }
     </style>
   </head>
   <body>
-    <!-- Navigation -->
     <nav class="site-nav">
       <div class="nav-container">
         <a href="/" class="nav-logo">ELITEDEVS</a>
@@ -141,103 +342,224 @@
       </div>
     </nav>
 
-    <!-- Decorative Shapes -->
     <div class="bg-shape s1"></div>
     <div class="bg-shape s2"></div>
     <div class="bg-shape s3"></div>
 
     <header class="site-header about-header">
       <div class="hero-intro" data-aos="fade-up" data-aos-duration="500">
-        <h1>About EliteDevs</h1>
-        <p class="lead" style="margin: 0 auto; max-width: 600px;">Two developers building custom software that's fast and modern.</p>
+        <h1>About <span class="underline">EliteDevs</span></h1>
+        <p class="lead" style="margin: 0 auto; max-width: 640px;">
+          Two people, a handful of side projects that turned into shipped products, and an unreasonable enthusiasm for getting one more thing into users' hands.
+        </p>
+        <div class="hero-photos" data-aos="fade-up" data-aos-delay="150">
+          <div class="photo p1" role="img" aria-label="Code on a laptop screen"></div>
+          <div class="photo p2" role="img" aria-label="Whiteboard with diagrams"></div>
+          <div class="photo p3" role="img" aria-label="Hands at a keyboard"></div>
+        </div>
       </div>
     </header>
 
-    <main class="main-content" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-      <section style="margin-bottom: 4rem;">
-        <div class="text-columns" data-aos="fade-up" data-aos-duration="700">
-          <div>
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Who We Are</h2>
-            <p class="lead" style="margin-top: 0;">
-              We're two developers who love pushing what's possible with web and software. We experiment, test new ideas, and keep improving. We don't just build websites - we create systems that really solve problems. We love tackling hard challenges and finding the next big project to work on.
-            </p>
-          </div>
-          <div>
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">What We Do</h2>
-            <p class="lead" style="margin-top: 0;">
-              Trading software, game worlds, websites, security tools, AI tools, simulations - we've done it all. We know most programming languages and can quickly learn new tools to fit what your project needs. If you're not sure if we can do something, just ask! We're happy to discuss your ideas.
-            </p>
-          </div>
-        </div>
+    <main class="main-content" style="padding: 0 2rem;">
 
-        <div class="about-grid full-width">
-          <div class="about-item" data-aos="fade-up" data-aos-delay="100">
-            <h3 style="margin-top: 0;">Performance</h3>
-            <p>We pick tools that make your software fast and reliable. Every part is built to work smoothly and handle what you throw at it.</p>
-          </div>
-          <div class="about-item" data-aos="fade-up" data-aos-delay="150">
-            <h3 style="margin-top: 0;">Usability</h3>
-            <p>Complex systems should be easy to use. We build clean designs that make sense. Our goal is for you to understand and enjoy using what we create.</p>
-          </div>
-          <div class="about-item" data-aos="fade-up" data-aos-delay="200">
-            <h3 style="margin-top: 0;">Architecture</h3>
-            <p>We build code that lasts. Our projects are organized so other developers can easily work on them now or years from now. No confusion, no mystery code.</p>
-          </div>
+      <section class="story-block" data-aos="fade-up">
+        <p>We met as students who kept ending up in the same problem sets, then kept ending up in the same side projects. EliteDevs is the umbrella we use for the work we ship together: browser extensions on the Chrome Web Store and Edge Add-ons, browser-based games and simulations, productivity tools, and the occasional weekend experiment that turns into something real.</p>
+        <p>Most of what's on this site started as us scratching our own itch. <strong>Tab Sorter Pro</strong> existed because Dima had 60 tabs open and refused to close them. <strong>Focus Blocker</strong> existed because Pablo kept getting nerd-sniped by Wikipedia at 2am. <strong>HumanDocTyper</strong> existed because watching a doc fill out at human pace is genuinely satisfying. The pattern: build the smallest version that works, ship it, then keep going if people actually use it.</p>
+        <p>We're not an agency. There's no pitch deck. If you've got something interesting you want built, talk to us — and if we're not the right fit, we'll tell you.</p>
+      </section>
+
+      <section class="what-we-build" data-aos="fade-up">
+        <h2>What we've actually shipped</h2>
+        <p class="sub">Real things you can install, click, or play right now.</p>
+
+        <div class="examples-grid">
+          <article class="example" data-aos="fade-up" data-aos-delay="50">
+            <div class="thumb thumb-brokersim">
+              <span class="tag">3D Game</span>
+            </div>
+            <div class="body">
+              <h3>BrokerSIM</h3>
+              <p>A broker roleplay sim with a 2D deal desk and a Three.js warehouse you actually walk around in. One full day end-to-end is playable today.</p>
+              <a class="link" href="/projects/dh-brokersim.html">See the project →</a>
+            </div>
+          </article>
+
+          <article class="example" data-aos="fade-up" data-aos-delay="100">
+            <div class="thumb thumb-tabsorter">
+              <span class="tag">Extension</span>
+              <div class="thumb-svg">
+                <svg width="160" height="100" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="10" y="18" width="40" height="14" fill="#1a1a1a"/>
+                  <rect x="56" y="18" width="40" height="14" fill="#1a1a1a" opacity="0.45"/>
+                  <rect x="102" y="18" width="40" height="14" fill="#1a1a1a" opacity="0.25"/>
+                  <rect x="10" y="40" width="60" height="14" fill="#D97634"/>
+                  <rect x="76" y="40" width="66" height="14" fill="#1a1a1a" opacity="0.35"/>
+                  <rect x="10" y="62" width="32" height="14" fill="#1a1a1a" opacity="0.55"/>
+                  <rect x="48" y="62" width="50" height="14" fill="#1a1a1a" opacity="0.25"/>
+                </svg>
+              </div>
+            </div>
+            <div class="body">
+              <h3>Tab Sorter Pro</h3>
+              <p>Cross-browser tab organizer on the Chrome Web Store and Edge Add-ons. Used in 22 countries, growing on its own.</p>
+              <a class="link" href="/projects/dima-tab-sorter-pro.html">See the project →</a>
+            </div>
+          </article>
+
+          <article class="example" data-aos="fade-up" data-aos-delay="150">
+            <div class="thumb thumb-humantyper">
+              <span class="tag">Extension</span>
+              <div class="thumb-svg">
+                <svg width="160" height="80" viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="20" y="14" width="120" height="52" rx="6" fill="white" opacity="0.95"/>
+                  <rect x="28" y="24" width="80" height="4" rx="2" fill="#D97634" opacity="0.7"/>
+                  <rect x="28" y="34" width="100" height="4" rx="2" fill="#D97634" opacity="0.5"/>
+                  <rect x="28" y="44" width="60" height="4" rx="2" fill="#D97634" opacity="0.35"/>
+                  <rect x="90" y="44" width="2" height="10" fill="#D97634"/>
+                </svg>
+              </div>
+            </div>
+            <div class="body">
+              <h3>HumanDocTyper</h3>
+              <p>Chrome extension that types into Google Docs at a real human cadence — variable WPM, natural pauses, in-doc controls.</p>
+              <a class="link" href="/projects/dima-human-doc-typer.html">See the project →</a>
+            </div>
+          </article>
+
+          <article class="example" data-aos="fade-up" data-aos-delay="200">
+            <div class="thumb thumb-focus">
+              <span class="tag">Extension</span>
+              <div class="thumb-svg">
+                <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="60" cy="40" r="22" stroke="white" stroke-width="3" fill="none"/>
+                  <line x1="42" y1="22" x2="78" y2="58" stroke="white" stroke-width="3"/>
+                </svg>
+              </div>
+            </div>
+            <div class="body">
+              <h3>Focus Blocker</h3>
+              <p>Privacy-first distraction blocker on Chrome and Edge. Uses Declarative Net Request — no telemetry, no slowdown.</p>
+              <a class="link" href="/projects/pablo-focus-blocker.html">See the project →</a>
+            </div>
+          </article>
+
+          <article class="example" data-aos="fade-up" data-aos-delay="250">
+            <div class="thumb thumb-swapspot">
+              <span class="tag">Web Game</span>
+              <div class="thumb-svg">
+                <svg width="140" height="80" viewBox="0 0 140 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="20" y="20" width="30" height="40" rx="6" fill="white" opacity="0.9"/>
+                  <rect x="55" y="20" width="30" height="40" rx="6" fill="white" opacity="0.7"/>
+                  <rect x="90" y="20" width="30" height="40" rx="6" fill="white" opacity="0.5"/>
+                </svg>
+              </div>
+            </div>
+            <div class="body">
+              <h3>Swapspot</h3>
+              <p>Browser memory/swap game with rounds, lives, difficulty curves, and audio. Polished enough to keep playing past the demo.</p>
+              <a class="link" href="/projects/dh-swapspot.html">See the project →</a>
+            </div>
+          </article>
+
+          <article class="example" data-aos="fade-up" data-aos-delay="300">
+            <div class="thumb thumb-studymaster">
+              <span class="tag">Frontend</span>
+              <div class="thumb-svg">
+                <svg width="160" height="100" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="14" y="18" width="64" height="8" fill="#1a1a1a"/>
+                  <rect x="14" y="32" width="100" height="3" fill="#1a1a1a" opacity="0.4"/>
+                  <rect x="14" y="40" width="86" height="3" fill="#1a1a1a" opacity="0.4"/>
+                  <rect x="14" y="48" width="72" height="3" fill="#1a1a1a" opacity="0.4"/>
+                  <rect x="14" y="62" width="36" height="20" fill="#D97634"/>
+                  <rect x="56" y="62" width="36" height="20" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+                </svg>
+              </div>
+            </div>
+            <div class="body">
+              <h3>StudyMaster</h3>
+              <p>Study-efficiency app with dashboards, practice, analytics, and a support chat widget — ready to connect to real data.</p>
+              <a class="link" href="/projects/dh-studymaster.html">See the project →</a>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="team-section" style="margin-bottom: 5rem;">
-        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem;" data-aos="fade-up">Our Specialties</h2>
+      <section class="team-section">
+        <h2 data-aos="fade-up">Who's behind it</h2>
+        <p class="sub" data-aos="fade-up">Two of us. We split work along what we each actually enjoy doing.</p>
         <div class="teams-grid">
           <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-badge dh4410">Dima</div>
-            <h3>Games & Graphics</h3>
-            <p>Builds game systems, real-time interactive tools, and 3D graphics. Makes projects fun and engaging to use.</p>
-            <ul class="tech-list">
-              <li>Three.js & WebGL</li>
-              <li>Game Architecture</li>
-              <li>AI Prompting & Logic</li>
-              <li>Mathematical Algorithms</li>
-              <li>3D Systems</li>
-            </ul>
+            <div class="portrait portrait-dima">
+              <span class="name">Dima</span>
+              <span class="role">Games · Graphics · Extensions</span>
+            </div>
+            <div class="body">
+              <p>Builds the things you click on. If a project has a 3D scene, a real-time loop, or a browser extension shipping to a store, that's usually me. I like figuring out the smallest version of a feature that still feels good to use.</p>
+              <ul>
+                <li>Three.js & WebGL — wrote the warehouse scene in BrokerSIM</li>
+                <li>Browser extensions — Tab Sorter Pro & HumanDocTyper, both on the Chrome Web Store</li>
+                <li>Game architecture — Swapspot, CityBuilder, typing-platformer</li>
+                <li>Next.js / Vite / React frontends</li>
+              </ul>
+            </div>
           </div>
+
           <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-badge zoande">Pablo</div>
-            <h3>Backend & Structure</h3>
-            <p>Builds the foundation of apps, connects everything together, and makes sure systems stay fast as they grow.</p>
-            <ul class="tech-list">
-              <li>Next.js / React</li>
-              <li>WebSockets</li>
-              <li>Database Architecture</li>
-              <li>API Development</li>
-              <li>Complex Simulations</li>
-            </ul>
+            <div class="portrait portrait-pablo">
+              <span class="name">Pablo</span>
+              <span class="role">Systems · Backend · Simulation</span>
+            </div>
+            <div class="body">
+              <p>Handles the parts you don't see — until they break, then you really notice. I lean into the systems-y problems: networking, simulation math, and the kind of backend work that has to keep running while no one's watching.</p>
+              <ul>
+                <li>Node / Express / WebSocket services</li>
+                <li>Simulation & negotiation logic — BrokerSIM's deal engine</li>
+                <li>C/C++ for the heavier math when JS isn't enough</li>
+                <li>Declarative Net Request rule design (Focus Blocker)</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="values-section" style="margin-bottom: 6rem;">
-        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 2.5rem;" data-aos="fade-up">How We Build</h2>
-        <div class="values-grid">
-          <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-            <h3 style="margin-top: 0;">Quick Feedback</h3>
-            <p>We start showing you results fast. You can see what we're building, give us feedback, and we adjust to match what you really need.</p>
+      <section class="how-section">
+        <h2 data-aos="fade-up">How we usually work</h2>
+        <p class="sub" data-aos="fade-up">No agency-speak. The actual rhythm we fall into on most projects.</p>
+        <div class="steps">
+          <div class="step" data-aos="fade-up" data-aos-delay="100">
+            <div class="num">01</div>
+            <h3>Talk it through</h3>
+            <p>You tell us what you actually want. We tell you which parts sound easy, which parts sound hard, and whether you should be doing this at all. No proposal documents.</p>
           </div>
-          <div class="value-card" data-aos="fade-up" data-aos-delay="150">
-            <h3 style="margin-top: 0;">Right Tools</h3>
-            <p>We don't stick to one way of doing things. We pick the best languages and tools for your project. Each project gets exactly what it needs.</p>
+          <div class="step" data-aos="fade-up" data-aos-delay="150">
+            <div class="num">02</div>
+            <h3>Ship the ugly version</h3>
+            <p>We build the smallest thing that proves the idea. It's often hideous. The point is you get to use it in week one and tell us what's wrong before we've committed to a design.</p>
           </div>
-          <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-            <h3 style="margin-top: 0;">Built to Last</h3>
-            <p>We write code that holds up over time. Our projects are tested and reliable. They're built to keep working, even when things go wrong.</p>
+          <div class="step" data-aos="fade-up" data-aos-delay="200">
+            <div class="num">03</div>
+            <h3>Polish where it matters</h3>
+            <p>Once the shape is right, we make the parts you'll touch every day feel good — animations, edge cases, performance. We don't polish what no one sees.</p>
+          </div>
+          <div class="step" data-aos="fade-up" data-aos-delay="250">
+            <div class="num">04</div>
+            <h3>Hand it off cleanly</h3>
+            <p>You get the code, the deploy, and a README that someone else could pick up. If something breaks six months later, you can read the commit history and understand what we did.</p>
           </div>
         </div>
       </section>
 
-      <section class="cta-section" data-aos="fade-up" style="margin-bottom: 4rem; text-align: center; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); padding: 4rem 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,1); box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
-        <h2 style="margin-top: 0; color: #2a2a2a;">Ready to collaborate?</h2>
-        <p style="margin-bottom: 2rem; color: #555;">Check out our repositories or send us a message to talk about your next project.</p>
-        <div class="cta-actions" style="display: flex; justify-content: center; gap: 1rem;">
+      <section class="quote-band" data-aos="fade-up">
+        <blockquote>
+          The best way to know if we can build it is to ask. Worst case, we say no — usually we don't.
+        </blockquote>
+        <span class="quote-author">— Both of us, every time someone asks</span>
+      </section>
+
+      <section class="cta-section" data-aos="fade-up">
+        <h2 style="margin-top: 0; color: #2a2a2a;">Want to talk about a project?</h2>
+        <p style="margin-bottom: 2rem; color: #555;">Drop us a message or have a look at the rest of what we've shipped.</p>
+        <div class="cta-actions" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
           <a href="/contact.html" class="button">Contact Us</a>
           <a href="index.html#projects" class="button ghost">View Projects</a>
         </div>
@@ -280,21 +602,18 @@
         offset: 50
       });
 
-      // --- Custom Page Exit Transition Script ---
-      // This prevents the overlapping glitch by fading out the page BEFORE loading the next one
       document.addEventListener('DOMContentLoaded', () => {
         const links = document.querySelectorAll('a[href]');
         links.forEach(link => {
           link.addEventListener('click', function(e) {
             const target = this.getAttribute('href');
-            // If it's an internal page link and not just an anchor link (#)
             if(target && !target.startsWith('#') && target.indexOf('http') === -1 && target.indexOf('mailto') === -1) {
               e.preventDefault();
               document.body.style.transition = 'opacity 0.3s ease-out';
-              document.body.style.opacity = '0'; // Fade current page out
+              document.body.style.opacity = '0';
               setTimeout(() => {
                 window.location.href = target;
-              }, 300); // Wait 300ms for fade to finish before navigating
+              }, 300);
             }
           });
         });
