@@ -25,9 +25,13 @@
       const aosDelay = Math.min(index * 75, 450);
       const externalLink = project.repoUrl || project.extUrl;
       const linkLabel = project.extUrl ? "Get Extension" : "Repo";
+      // If the project has a live play URL, show that instead of the repo link
+      const primaryBtn = project.playUrl
+        ? `<a class="button ghost" href="${project.playUrl}" target="_blank" rel="noopener noreferrer">Play Now</a>`
+        : `<a class="button ghost" href="${externalLink}" target="_blank" rel="noopener noreferrer">${linkLabel}</a>`;
       return `
-        <article 
-          class="project-card" 
+        <article
+          class="project-card"
           aria-label="${project.title}"
           data-aos="fade-up"
           data-aos-duration="500"
@@ -38,7 +42,7 @@
           <p class="summary">${project.summary}</p>
           <div class="chip-row">${tech}</div>
           <div class="card-actions">
-            <a class="button ghost" href="${externalLink}" target="_blank" rel="noopener noreferrer">${linkLabel}</a>
+            ${primaryBtn}
             <a class="button" href="projects/${project.id}.html">Open Page</a>
           </div>
         </article>

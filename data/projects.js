@@ -71,7 +71,7 @@ window.PROJECTS = [
   {
     id: "dh-brokersim",
     title: "BrokerSIM",
-    owner: "Dima",
+    owner: "Pablo & Dima",
     repoUrl: "https://github.com/DH4410/BrokerSIM",
     localPath: "repos/DH4410__BrokerSIM",
     tech: ["React 19", "TypeScript", "Vite", "Three.js", "WebGL", "GLTF Assets"],
@@ -277,7 +277,7 @@ window.PROJECTS = [
   {
     id: "pablo-focus-blocker",
     title: "Focus Blocker - DNR Redirect",
-    owner: "Pablo",
+    owner: "Dima",
     extUrl: "https://chromewebstore.google.com/detail/focus-blocker-dnr-redirec/dlbjkoeipepfliekbhiojgalkbdhhogi",
     edgeUrl: "https://microsoftedge.microsoft.com/addons/detail/focus-blocker-dnr-redire/blbdfgcopalolnckkhfbdnnfpmaillpl",
     chromeUrl: "https://chromewebstore.google.com/detail/focus-blocker-dnr-redirec/dlbjkoeipepfliekbhiojgalkbdhhogi",
@@ -347,6 +347,7 @@ window.PROJECTS = [
     title: "StellarFronts",
     owner: "Pablo",
     repoUrl: "https://github.com/Zoande/stellarfronts",
+    playUrl: "https://stellarfronts.com",
     localPath: "repos/Zoande__stellarfronts",
     tech: ["React 19", "Vite", "BabylonJS 7", "WebSocket", "TypeScript", "SQLite"],
     stage: "Real-time multiplayer prototype",

@@ -53,60 +53,44 @@
         margin: 0 0 1.2rem;
       }
 
-      .starscape {
-        background: #0a0e1a;
-        height: 280px;
-        position: relative;
-        overflow: hidden;
+      .header-screenshot {
+        width: 100%;
+        height: auto;
         border: 1px solid #1a1a1a;
+        display: block;
       }
-      .starscape::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image:
-          radial-gradient(1px 1px at 20% 30%, #fff, transparent),
-          radial-gradient(1px 1px at 60% 70%, #fff, transparent),
-          radial-gradient(2px 2px at 80% 20%, #fff, transparent),
-          radial-gradient(1px 1px at 40% 80%, #fff, transparent),
-          radial-gradient(1px 1px at 90% 50%, #fff, transparent),
-          radial-gradient(2px 2px at 10% 60%, #fff, transparent),
-          radial-gradient(1px 1px at 70% 40%, #fff, transparent),
-          radial-gradient(1px 1px at 30% 50%, #fff, transparent),
-          radial-gradient(1px 1px at 50% 10%, #fff, transparent),
-          radial-gradient(1px 1px at 15% 85%, #fff, transparent);
-        opacity: 0.8;
+
+      .screenshot-pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin: 2.5rem 0 0;
       }
-      .starscape::after {
-        content: '';
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 35% 35%, #ffe9c0, #e09a3b 55%, #6b3a10 100%);
-        box-shadow: 0 0 60px rgba(255, 180, 90, 0.35);
-        bottom: 30px;
-        right: 50px;
+      @media (max-width: 640px) { .screenshot-pair { grid-template-columns: 1fr; } }
+      .screenshot-pair figure { margin: 0; }
+      .screenshot-pair img {
+        width: 100%;
+        border: 1px solid #d6d2c8;
+        display: block;
       }
-      .starscape .planet-sm {
-        position: absolute;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 30% 30%, #6ec3d3, #2c5f6d 60%, #0c2730 100%);
-        bottom: 80px;
-        right: 160px;
-        box-shadow: 0 0 18px rgba(80, 160, 200, 0.4);
+      .screenshot-pair figcaption {
+        font-size: 0.82rem;
+        color: #777;
+        margin-top: 0.4rem;
+        font-family: 'Space Grotesk', sans-serif;
       }
-      .starscape .ring {
-        position: absolute;
-        bottom: 65px;
-        right: 25px;
-        width: 130px;
-        height: 8px;
-        border: 1px solid rgba(255, 220, 180, 0.35);
-        border-radius: 50%;
-        transform: rotate(-18deg);
+
+      .screenshot-full { margin: 2.5rem 0 0; }
+      .screenshot-full img {
+        width: 100%;
+        border: 1px solid #d6d2c8;
+        display: block;
+      }
+      .screenshot-full figcaption {
+        font-size: 0.82rem;
+        color: #777;
+        margin-top: 0.4rem;
+        font-family: 'Space Grotesk', sans-serif;
       }
 
       .content-grid { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
@@ -295,11 +279,13 @@
         <p style="font-size: 1.1rem; color: #555; margin: 1.2rem 0 0; max-width: 36rem; line-height: 1.55;">
           A browser-based real-time space strategy game. Login, claim a country, explore the galaxy, expand with starbases and districts, run an economy and research over time. React frontend, BabylonJS 7 command view, WebSocket game server, separate auth server, and an orchestrator that hosts multiple game versions in parallel.
         </p>
+        <a href="https://stellarfronts.com" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: inline-block; margin: 2rem 0 0; background: #2C5F5D;">Play Now →</a>
       </div>
-      <div class="starscape" aria-hidden="true">
-        <div class="planet-sm"></div>
-        <div class="ring"></div>
-      </div>
+      <img
+        src="../resources/stellarfronts/stellarfrontsloginss.png"
+        alt="StellarFronts login screen"
+        class="header-screenshot"
+      />
     </header>
 
     <main class="content-grid">
@@ -326,6 +312,10 @@
         <p style="font-size: 1.05rem; line-height: 1.75; max-width: 720px; margin: 0; color: #333;">
           StellarFronts is built around logistics, expansion, economy, research, market trading, and system control — not direct combat. The local stack runs end-to-end with one command (<code style="background:#fffdf9; padding: 0 0.35rem; border:1px solid #d6d2c8;">npm run dev:all</code>) and brings up the React client, the HTTP auth server, and the WebSocket game server together.
         </p>
+        <figure class="screenshot-full" style="margin: 2.5rem 0 0;">
+          <img src="../resources/stellarfronts/fullgalaxyviewexplored.png" alt="Galaxy map — fully explored" />
+          <figcaption>Galaxy map after sustained expansion — territory carved out, starbases placed, systems connected.</figcaption>
+        </figure>
       </section>
 
       <section class="section">
@@ -378,6 +368,17 @@
             <h3>Admin debug</h3>
             <p>Admin accounts get in-game debug commands, full map visibility, and a developer panel at <code>/dev</code>.</p>
           </div>
+        </div>
+
+        <div class="screenshot-pair">
+          <figure>
+            <img src="../resources/stellarfronts/stellarfrongsgalaxyviewunexplored.png" alt="Galaxy map — unexplored at game start" />
+            <figcaption>Galaxy at game start — dark, unclaimed, waiting.</figcaption>
+          </figure>
+          <figure>
+            <img src="../resources/stellarfronts/coollookingsystem.png" alt="In-game system view" />
+            <figcaption>Zoomed into a system — starbases, districts, and resource nodes visible.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -457,11 +458,12 @@
 
       <section class="cta-section">
         <div>
-          <h2>See the code</h2>
-          <p>Public repo with README, full local-stack instructions, and the orchestrator design.</p>
+          <h2>Play now</h2>
+          <p>The live game is hosted at stellarfronts.com — jump in and claim a country.</p>
         </div>
         <div style="text-align: right;">
-          <a href="https://github.com/Zoande/stellarfronts" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+          <a href="https://stellarfronts.com" target="_blank" rel="noopener noreferrer" class="cta-button">Play Now</a>
+          <a href="https://github.com/Zoande/stellarfronts" target="_blank" rel="noopener noreferrer" class="cta-button ghost">View on GitHub</a>
         </div>
       </section>
     </main>

@@ -243,7 +243,7 @@ body {
 .project-card h3 { margin: 0 0 1.2rem; font-size: 1.8rem; font-weight: 800; }
 .project-card .summary { margin: 0 0 2.5rem; color: var(--text-muted); line-height: 1.7; font-size: 1.1rem; flex-grow: 1; }
 
-.chip-row, .builder-tags { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2.5rem; }
+.chip-row, .builder-tags { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2.5rem; justify-content: center; }
 .chip, .builder-tags span {
   background: #f8fafc; color: var(--text-dark);
   border: 1px solid #e2e8f0; padding: 0.6rem 1.1rem; 
