@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StellarFronts | EliteDevs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles-premium-light.css" />
+    <style>
+      body {
+        background: linear-gradient(-45deg, #f8f9fa, #eef2f5, #e0e7ee, #f3f0f5);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .project-header {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+        padding: 5rem 3rem 3rem;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 3rem;
+        align-items: end;
+      }
+      @media (max-width: 820px) {
+        .project-header { grid-template-columns: 1fr; padding: 4rem 1.5rem 2rem; }
+      }
+      .project-header h1 {
+        font-size: clamp(2.5rem, 7vw, 3.8rem);
+        font-weight: 800;
+        margin: 0 0 1rem;
+        color: #1a1a1a;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+      .eyebrow {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #2C5F5D;
+        font-weight: 600;
+        margin: 0 0 1.2rem;
+      }
+
+      .starscape {
+        background: #0a0e1a;
+        height: 280px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #1a1a1a;
+      }
+      .starscape::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+          radial-gradient(1px 1px at 60% 70%, #fff, transparent),
+          radial-gradient(2px 2px at 80% 20%, #fff, transparent),
+          radial-gradient(1px 1px at 40% 80%, #fff, transparent),
+          radial-gradient(1px 1px at 90% 50%, #fff, transparent),
+          radial-gradient(2px 2px at 10% 60%, #fff, transparent),
+          radial-gradient(1px 1px at 70% 40%, #fff, transparent),
+          radial-gradient(1px 1px at 30% 50%, #fff, transparent),
+          radial-gradient(1px 1px at 50% 10%, #fff, transparent),
+          radial-gradient(1px 1px at 15% 85%, #fff, transparent);
+        opacity: 0.8;
+      }
+      .starscape::after {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, #ffe9c0, #e09a3b 55%, #6b3a10 100%);
+        box-shadow: 0 0 60px rgba(255, 180, 90, 0.35);
+        bottom: 30px;
+        right: 50px;
+      }
+      .starscape .planet-sm {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #6ec3d3, #2c5f6d 60%, #0c2730 100%);
+        bottom: 80px;
+        right: 160px;
+        box-shadow: 0 0 18px rgba(80, 160, 200, 0.4);
+      }
+      .starscape .ring {
+        position: absolute;
+        bottom: 65px;
+        right: 25px;
+        width: 130px;
+        height: 8px;
+        border: 1px solid rgba(255, 220, 180, 0.35);
+        border-radius: 50%;
+        transform: rotate(-18deg);
+      }
+
+      .content-grid { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+      .section { margin: 5rem 0; }
+      .section h2 {
+        font-size: 2rem;
+        margin: 0 0 2rem;
+        text-align: left;
+        color: #1a1a1a;
+        border-bottom: 1px solid #1a1a1a;
+        padding-bottom: 0.6rem;
+        display: inline-block;
+        letter-spacing: -0.01em;
+      }
+
+      .stats-row {
+        display: flex;
+        gap: 3rem;
+        margin: 0 0 3rem;
+        flex-wrap: wrap;
+      }
+      .stat .num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.5rem;
+        color: #1a1a1a;
+        letter-spacing: 0.02em;
+        line-height: 1;
+      }
+      .stat .lbl {
+        font-size: 0.74rem;
+        color: #777;
+        margin-top: 0.3rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .arch-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+      @media (max-width: 820px) { .arch-grid { grid-template-columns: 1fr; } }
+      .arch-prose p { color: #444; line-height: 1.75; margin: 0 0 1rem; font-size: 1.02rem; }
+      .arch-prose strong { color: #1a1a1a; }
+      .arch-diagram {
+        background: #fffdf9;
+        border: 1px solid #d6d2c8;
+        padding: 1.8rem;
+        font-family: 'Space Grotesk', monospace;
+        font-size: 0.88rem;
+        line-height: 1.65;
+        color: #222;
+      }
+      .arch-diagram .box {
+        border: 1px solid #1a1a1a;
+        padding: 0.6rem 0.9rem;
+        margin: 0.4rem 0;
+        background: #fff;
+      }
+      .arch-diagram .box .small { color: #777; font-size: 0.78rem; display: block; margin-top: 0.15rem; }
+      .arch-diagram .arrow { color: #D97634; padding-left: 1rem; }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 0;
+        margin: 2rem 0;
+        border-top: 1px solid #d6d2c8;
+        border-left: 1px solid #d6d2c8;
+      }
+      .feature-card {
+        background: transparent;
+        padding: 1.8rem 1.6rem;
+        border-right: 1px solid #d6d2c8;
+        border-bottom: 1px solid #d6d2c8;
+      }
+      .feature-card h3 {
+        margin: 0 0 0.6rem 0;
+        color: #1a1a1a;
+        font-size: 1.05rem;
+        font-weight: 700;
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+      }
+      .feature-card h3::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #2C5F5D;
+      }
+      .feature-card p { color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0; }
+
+      .roles-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+        font-size: 0.95rem;
+      }
+      .roles-table th, .roles-table td {
+        text-align: left;
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid #d6d2c8;
+      }
+      .roles-table th {
+        background: #1a1a1a;
+        color: #f3efe8;
+        font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .roles-table td:first-child { font-weight: 700; color: #1a1a1a; }
+      .roles-table td { color: #444; }
+
+      .cta-section {
+        text-align: left;
+        margin: 4rem 0;
+        padding: 3rem;
+        background: #1a1a1a;
+        color: #f3efe8;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .cta-section h2 { color: #f3efe8 !important; border: none !important; margin: 0 0 0.6rem; }
+      .cta-section p { color: #c8c4ba !important; margin: 0; }
+      @media (max-width: 720px) { .cta-section { grid-template-columns: 1fr; } }
+
+      .cta-button {
+        display: inline-block;
+        background: #D97634;
+        color: #fff;
+        padding: 0.9rem 1.8rem;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin: 0.25rem 0 0.25rem 0.5rem;
+      }
+      .cta-button:hover { background: #b85f24; }
+      .cta-button.ghost {
+        background: transparent;
+        border: 1px solid #f3efe8;
+        color: #f3efe8;
+      }
+
+      .nav-back { max-width: 1100px; margin: 2rem auto; padding: 0 2rem; }
+      .nav-back a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .nav-back a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">ELITEDEVS</a>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item"><a href="/#projects">Projects</a></li>
+          <li class="nav-item"><a href="/about.html">About</a></li>
+          <li class="nav-item"><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="nav-back">
+      <a href="/#projects">← Back to Projects</a>
+    </div>
+
+    <header class="project-header">
+      <div>
+        <p class="eyebrow">In development — Pablo</p>
+        <h1>StellarFronts</h1>
+        <p style="font-size: 1.1rem; color: #555; margin: 1.2rem 0 0; max-width: 36rem; line-height: 1.55;">
+          A browser-based real-time space strategy game. Login, claim a country, explore the galaxy, expand with starbases and districts, run an economy and research over time. React frontend, BabylonJS 7 command view, WebSocket game server, separate auth server, and an orchestrator that hosts multiple game versions in parallel.
+        </p>
+      </div>
+      <div class="starscape" aria-hidden="true">
+        <div class="planet-sm"></div>
+        <div class="ring"></div>
+      </div>
+    </header>
+
+    <main class="content-grid">
+      <section class="section">
+        <h2>At a glance</h2>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="num">3</div>
+            <div class="lbl">Servers in stack</div>
+          </div>
+          <div class="stat">
+            <div class="num">3</div>
+            <div class="lbl">Account tiers</div>
+          </div>
+          <div class="stat">
+            <div class="num">∞</div>
+            <div class="lbl">Versions in parallel</div>
+          </div>
+          <div class="stat">
+            <div class="num">2D + 3D</div>
+            <div class="lbl">Mixed presentation</div>
+          </div>
+        </div>
+        <p style="font-size: 1.05rem; line-height: 1.75; max-width: 720px; margin: 0; color: #333;">
+          StellarFronts is built around logistics, expansion, economy, research, market trading, and system control — not direct combat. The local stack runs end-to-end with one command (<code style="background:#fffdf9; padding: 0 0.35rem; border:1px solid #d6d2c8;">npm run dev:all</code>) and brings up the React client, the HTTP auth server, and the WebSocket game server together.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Architecture</h2>
+        <div class="arch-grid">
+          <div class="arch-prose">
+            <p>The codebase is split clean down the middle: <strong>src/</strong> is the React UI, gameplay shared types, and BabylonJS scene; <strong>server/</strong> is the auth server, the game server, and the orchestrator that ties them together behind a single gateway.</p>
+            <p>The <strong>auth server</strong> handles login, signup, sessions, and the game catalog. It uses HttpOnly cookies, PBKDF2-hashed passwords, and a SQLite store on disk. Google and Microsoft OAuth endpoints are stubbed for later.</p>
+            <p>The <strong>game server</strong> is a WebSocket process that owns the live simulation, broadcasts state, and saves dirty state on a timer to JSON per game.</p>
+            <p>The <strong>orchestrator</strong> is the interesting part — it checks out each game version as an isolated git worktree and runs it as its own game-server process, so a brand-new game can run updated code while an older live game stays pinned to the code it was started on. Clients still talk to one public endpoint; the orchestrator routes them to the right version.</p>
+          </div>
+          <div class="arch-diagram" aria-hidden="true">
+            <div class="box">Client (React + BabylonJS) <span class="small">localhost:5173</span></div>
+            <div class="arrow">│ HTTP</div>
+            <div class="box">Auth server <span class="small">localhost:8788 · SQLite</span></div>
+            <div class="arrow">│ WebSocket</div>
+            <div class="box">Game gateway <span class="small">localhost:8787</span></div>
+            <div class="arrow">│ routes by version</div>
+            <div class="box">Game server (v1)</div>
+            <div class="box">Game server (v2) <span class="small">isolated worktree</span></div>
+            <div class="box">Game server (v3)</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What you can do in-game</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>Claim a country</h3>
+            <p>Normal accounts pick from generated countries on join. Observers and admins can enter games without claiming.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Explore the galaxy</h3>
+            <p>BabylonJS 7 command view with a procedural skybox and loaded GLB ship and starbase models, mixed with HUD-style overlays.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Expand</h3>
+            <p>Build starbases and districts to extend reach and capacity over the long game.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Run an economy</h3>
+            <p>Logistics, research, and market trading are first-class systems — the game is balanced around them rather than around combat.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Hold sessions</h3>
+            <p>Game state persists per-game on a dirty-write timer. You can leave and resume a country across sessions.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Admin debug</h3>
+            <p>Admin accounts get in-game debug commands, full map visibility, and a developer panel at <code>/dev</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Accounts &amp; visibility</h2>
+        <table class="roles-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Can claim country</th>
+              <th>Map visibility</th>
+              <th>Debug commands</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Player</td>
+              <td>Yes — one generated country per game</td>
+              <td>Scoped to held territory</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Observer</td>
+              <td>No</td>
+              <td>Full read-only</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Admin</td>
+              <td>Optional</td>
+              <td>Full</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 0.95rem; color: #666; margin: 0; max-width: 720px;">
+          Seeded accounts on a fresh setup: <code style="background:#fffdf9; padding: 0 0.35rem; border:1px solid #d6d2c8;">observer / observer</code>, an admin account with the configured admin password, and <code style="background:#fffdf9; padding: 0 0.35rem; border:1px solid #d6d2c8;">color_1</code> through <code style="background:#fffdf9; padding: 0 0.35rem; border:1px solid #d6d2c8;">color_15</code> as player accounts.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Stack</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>React 19 + Vite</h3>
+            <p>Pathname-driven flows in <code>App.tsx</code>: login at <code>/</code>, catalog at <code>/home</code>, command view at <code>/game/:gameId</code>, dev panel at <code>/dev</code>.</p>
+          </div>
+          <div class="feature-card">
+            <h3>BabylonJS 7</h3>
+            <p>The 3D command view, procedural space skybox, and loaded GLB ships/starbases. Asset warm-up runs on the auth screen so the scene boots fast.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Node + WebSocket</h3>
+            <p>The game server is a long-lived Node process. Auth is a separate HTTP server so login can't take the game server down.</p>
+          </div>
+          <div class="feature-card">
+            <h3>SQLite + JSON state</h3>
+            <p>Accounts and dev stats live in SQLite. Per-game state writes to <code>server/state/games/&lt;id&gt;/game-state.json</code> on a dirty-write timer.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Orchestrator</h3>
+            <p>One gateway, many game-server versions running side by side on isolated git worktrees. Existing games stay on the code they started on.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Vercel Analytics</h3>
+            <p>Lightweight client-side analytics on the React app for usage signals.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Status</h2>
+        <p style="font-size: 1.05rem; line-height: 1.75; max-width: 720px; margin: 0; color: #333;">
+          Actively in development. The full local stack runs end-to-end and the core loop — login, claim, explore, expand, run an economy, persist — is wired up. Systems and balance are explicitly still a work in progress. OAuth endpoints exist but return 501 until Google and Microsoft are turned on.
+        </p>
+      </section>
+
+      <section class="cta-section">
+        <div>
+          <h2>See the code</h2>
+          <p>Public repo with README, full local-stack instructions, and the orchestrator design.</p>
+        </div>
+        <div style="text-align: right;">
+          <a href="https://github.com/Zoande/stellarfronts" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>EliteDevs</h4>
+            <p>Two developers building high-performance software.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <a href="/">Home</a>
+            <a href="/#projects">Projects</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 EliteDevs. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

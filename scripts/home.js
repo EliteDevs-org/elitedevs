@@ -9,11 +9,11 @@
   // Pick most important projects to display (6 total)
   const featuredIds = [
     "dh-brokersim",
+    "zoande-stellarfronts",
     "dh-swapspot",
     "dima-tab-sorter-pro",
     "pablo-focus-blocker",
-    "dh-citybuilder",
-    "dh-typing-platformer"
+    "dima-human-doc-typer"
   ];
   
   const displayedProjects = projects.filter(p => featuredIds.includes(p.id));

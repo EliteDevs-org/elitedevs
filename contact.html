@@ -69,33 +69,29 @@
       }
 
       .contact-header h1 {
-        background: linear-gradient(135deg, #111 0%, #6B9DC5 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #1a1a1a;
         font-size: clamp(2.5rem, 8vw, 4rem);
+        letter-spacing: -0.02em;
       }
 
-      /* Glassmorphism for Form and Cards */
       .glass-panel {
-        background: rgba(255, 255, 255, 0.8) !important;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,1) !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04) !important;
-        border-radius: 16px;
+        background: #fffdf9 !important;
+        border: 1px solid #e7e3da !important;
+        box-shadow: none !important;
+        border-radius: 4px;
       }
 
-      .contact-form-section {
-        padding: 2.5rem;
-      }
+      .contact-form-section { padding: 2.5rem; }
 
-      .info-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-        border-top: 4px solid transparent !important;
-      }
-      
-      .info-card:hover {
-        transform: translateY(-5px) !important;
-        box-shadow: 0 12px 40px rgba(107, 157, 197, 0.15) !important;
+      .info-card { border-top: 2px solid #1a1a1a !important; }
+      .info-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #777;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+        font-family: 'Space Grotesk', sans-serif;
       }
       
       .info-card:nth-child(2) { border-top-color: #6B9DC5 !important; }
@@ -224,15 +220,15 @@
             <h2 style="margin-top: 0; font-size: 1.8rem;" data-aos="fade-left" data-aos-delay="100">Direct Contact</h2>
             
             <div class="info-card glass-panel" data-aos="fade-up" data-aos-delay="150" style="margin-top: 1.5rem;">
-              <div class="info-icon">📧</div>
-              <h3 style="margin-top: 0;">Email</h3>
+              <p class="info-label">01 — Email</p>
+              <h3 style="margin-top: 0;">Reach us directly</h3>
               <p>Want to reach us directly? Send an email anytime.</p>
               <a href="mailto:EliteDevs@elitedevs.org" class="info-link">EliteDevs@elitedevs.org</a>
             </div>
 
             <div class="info-card glass-panel" data-aos="fade-up" data-aos-delay="200">
-              <div class="info-icon">🔗</div>
-              <h3 style="margin-top: 0;">Network</h3>
+              <p class="info-label">02 — Network</p>
+              <h3 style="margin-top: 0;">Where we live online</h3>
               <p>Check out our code and professional profiles.</p>
               <div class="social-links">
                 <a href="https://github.com" target="_blank" class="social-link">GitHub</a>
@@ -241,8 +237,8 @@
             </div>
 
             <div class="info-card glass-panel" data-aos="fade-up" data-aos-delay="250">
-              <div class="info-icon">⚡</div>
-              <h3 style="margin-top: 0;">Response Time</h3>
+              <p class="info-label">03 — Response Time</p>
+              <h3 style="margin-top: 0;">Usually within a day</h3>
               <p>We usually reply within 24 hours.</p>
             </div>
           </section>

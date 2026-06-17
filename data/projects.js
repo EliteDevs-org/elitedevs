@@ -23,75 +23,6 @@ window.PROJECTS = [
     ]
   },
   {
-    id: "zoande-ahhh",
-    title: "Space Strategy Prototype (ahhh)",
-    owner: "Pablo",
-    repoUrl: "https://github.com/Zoande/ahhh",
-    localPath: "repos/Zoande__ahhh",
-    tech: ["TypeScript", "Vite", "Babylon.js"],
-    stage: "Core rendering prototype",
-    summary:
-      "Phase-1 browser prototype for galaxy-to-system transition with textured star and planets orbiting in system view.",
-    details: [
-      "Uses SceneManager architecture for scene lifecycle and switching.",
-      "Target scope includes smooth zoom transition and clean disposal.",
-      "Project todo documents a clear rendering-first roadmap."
-    ],
-    status:
-      "Boot flow and scene setup exist; this is foundational work intended to be expanded into full strategy systems.",
-    deliverableSteps: [
-      "Validate transition stability under repeated zoom in/out.",
-      "Add UI overlay for system metadata and debug stats.",
-      "Package a scripted demo path for portfolio presentation."
-    ]
-  },
-  {
-    id: "zoande-onlineagent",
-    title: "onlineagent",
-    owner: "Pablo",
-    repoUrl: "https://github.com/Zoande/onlineagent",
-    localPath: "repos/Zoande__onlineagent",
-    tech: ["Node.js", "Express", "WebSocket", "Dashboard UI"],
-    stage: "Prototype service",
-    summary:
-      "Autonomous online agent prototype with Q-learning, persistent memory, and a real-time dashboard for observability.",
-    details: [
-      "Express server exposes task, planner, reward, and memory endpoints.",
-      "WebSocket stream broadcasts internal events for monitoring.",
-      "Auto-training loop cycles through key searches for iterative learning."
-    ],
-    status:
-      "Runnable as a Node service plus dashboard. Better treated as a backend/tooling project than a pure static web app.",
-    deliverableSteps: [
-      "Split agent core and dashboard into explicit modules.",
-      "Add auth/rate limiting before public deployment.",
-      "Document safe hosted mode and expected resource usage."
-    ]
-  },
-  {
-    id: "zoande-call-of-idk",
-    title: "Call-of-idk",
-    owner: "Pablo",
-    repoUrl: "https://github.com/Zoande/Call-of-idk",
-    localPath: "repos/Zoande__Call-of-idk",
-    tech: ["TypeScript", "Vite", "PixiJS", "Map Pipeline"],
-    stage: "Map engine in progress",
-    summary:
-      "Strategy map project inspired by Call of War/HOI4 with large-province rendering, layers, and performance-driven architecture.",
-    details: [
-      "Contains map-viewer app with pan/zoom, layer toggles, and selection UI.",
-      "Project goal targets ~13k provinces and multiple overlays.",
-      "Includes preprocessing roadmap for province/state extraction."
-    ],
-    status:
-      "Map viewer app is structured and runnable, but full data preprocessing and multiplayer-ready state are ongoing.",
-    deliverableSteps: [
-      "Finalize preprocessing pipeline output format.",
-      "Benchmark and optimize high-density province rendering.",
-      "Add deterministic layer toggle + selection test cases."
-    ]
-  },
-  {
     id: "dh-polymarket-bot",
     title: "Polymarket-Bot",
     owner: "Dima",
@@ -312,11 +243,13 @@ window.PROJECTS = [
     id: "dima-tab-sorter-pro",
     title: "Tab Sorter Pro",
     owner: "Dima",
-    extUrl: "https://microsoftedge.microsoft.com/addons/detail/tab-sorter-pro/knijhblmdgkokapjnghamplmlpmiohpm",
-    tech: ["Browser Extension", "TypeScript", "Edge"],
+    extUrl: "https://chromewebstore.google.com/detail/tab-sorter-pro/iicmneboehhnamjbbnfblejfgemgihnd",
+    edgeUrl: "https://microsoftedge.microsoft.com/addons/detail/tab-sorter-pro/knijhblmdgkokapjnghamplmlpmiohpm",
+    chromeUrl: "https://chromewebstore.google.com/detail/tab-sorter-pro/iicmneboehhnamjbbnfblejfgemgihnd",
+    tech: ["Browser Extension", "TypeScript", "Chrome", "Edge"],
     stage: "Published & Live",
     summary:
-      "Powerful Microsoft Edge extension for smart tab management with automatic sorting, grouping, and productivity features used by 64+ active users across 22 countries.",
+      "Cross-browser extension for smart tab management with automatic sorting, grouping, and productivity features. Available on Chrome Web Store and Microsoft Edge Add-ons.",
     details: [
       "Automatic tab organization and intelligent grouping system.",
       "One-click sorting and cleaning for cluttered workspaces.",
@@ -345,11 +278,13 @@ window.PROJECTS = [
     id: "pablo-focus-blocker",
     title: "Focus Blocker - DNR Redirect",
     owner: "Pablo",
-    extUrl: "https://microsoftedge.microsoft.com/addons/detail/focus-blocker-dnr-redire/blbdfgcopalolnckkhfbdnnfpmaillpl",
-    tech: ["Browser Extension", "Declarative Net Request", "Edge"],
+    extUrl: "https://chromewebstore.google.com/detail/focus-blocker-dnr-redirec/dlbjkoeipepfliekbhiojgalkbdhhogi",
+    edgeUrl: "https://microsoftedge.microsoft.com/addons/detail/focus-blocker-dnr-redire/blbdfgcopalolnckkhfbdnnfpmaillpl",
+    chromeUrl: "https://chromewebstore.google.com/detail/focus-blocker-dnr-redirec/dlbjkoeipepfliekbhiojgalkbdhhogi",
+    tech: ["Browser Extension", "Declarative Net Request", "Chrome", "Edge"],
     stage: "Published & Live",
     summary:
-      "Privacy-focused Microsoft Edge extension that blocks distracting websites and redirects using Declarative Net Request with 50+ downloads and 113+ active installations across 22 countries.",
+      "Privacy-focused cross-browser extension that blocks distracting websites and redirects using Declarative Net Request. Available on Chrome Web Store and Microsoft Edge Add-ons.",
     details: [
       "Uses Microsoft Edge's Declarative Net Request API for efficient blocking.",
       "Customizable blocklist with preset categories and custom rules.",
@@ -373,6 +308,64 @@ window.PROJECTS = [
       "Redirect Support: Intelligently redirect blocked sites to focus pages",
       "No Data Collection: Your browsing habits stay private",
       "Cross-Device Sync: Sync your preferences across Windows, Mac, and Linux"
+    ]
+  },
+  {
+    id: "dima-human-doc-typer",
+    title: "HumanDocTyper",
+    owner: "Dima",
+    extUrl: "https://chromewebstore.google.com/detail/human-doc-typer/jnogomlcblccgnpnodfgeecahhpcfaod",
+    chromeUrl: "https://chromewebstore.google.com/detail/human-doc-typer/jnogomlcblccgnpnodfgeecahhpcfaod",
+    tech: ["Browser Extension", "Chrome", "Google Docs"],
+    stage: "Published & Live",
+    summary:
+      "Chrome extension that types text into Google Docs with natural, human-like cadence — variable speed, realistic pauses, and configurable typing profiles.",
+    details: [
+      "Configurable WPM range and pause distribution to mimic real-person typing rhythm.",
+      "Pasteboard-aware: paste from clipboard or load from a saved snippet, then play back at human pace.",
+      "Pause, resume, and abort controls integrated directly in the Docs page.",
+      "Lightweight Manifest V3 architecture with no external network calls — content stays local to the tab."
+    ],
+    highlights: {
+      platform: "Chrome Web Store",
+      target: "Google Docs",
+      privacy: "100% local"
+    },
+    status:
+      "Live on the Chrome Web Store and used daily for personal workflow automation.",
+    features: [
+      "Variable WPM: Set min/max typing speed for a natural distribution",
+      "Realistic Pauses: Pause patterns that match real typing behavior",
+      "Profile Presets: Swap between calm, normal, and fast typing personalities",
+      "In-Doc Controls: Start, pause, and stop from inside Google Docs",
+      "Clipboard Sync: Paste from clipboard with a single click",
+      "Privacy First: No telemetry, no external requests, no account required"
+    ]
+  },
+  {
+    id: "zoande-stellarfronts",
+    title: "StellarFronts",
+    owner: "Pablo",
+    repoUrl: "https://github.com/Zoande/stellarfronts",
+    localPath: "repos/Zoande__stellarfronts",
+    tech: ["React 19", "Vite", "BabylonJS 7", "WebSocket", "TypeScript", "SQLite"],
+    stage: "Real-time multiplayer prototype",
+    summary:
+      "Browser-based real-time space strategy game with a split client/server architecture: React+BabylonJS frontend, WebSocket game server, separate HTTP auth server, and an orchestrator that hosts multiple game versions on isolated worktrees in parallel.",
+    details: [
+      "End-to-end real-time loop: login, claim a country, explore the galaxy, expand with starbases and districts, manage economy and research over time.",
+      "Three account tiers — player, observer, admin — with map visibility scoped to role and in-game admin debug commands.",
+      "BabylonJS 7 command view with procedural skybox, loaded GLB ships and starbases, and HUD-style overlays.",
+      "Auth server uses HttpOnly session cookies and PBKDF2-hashed passwords backed by SQLite.",
+      "Game state persists per-game to JSON on a dirty-write timer; the orchestrator runs each game version as its own isolated server process behind a single gateway, so live games stay pinned to the code they started on while new games can run updated code.",
+      "Built around logistics, expansion, economy, research, and market trading — not just direct combat."
+    ],
+    status:
+      "In active development. Local stack runs end-to-end (client + auth + game server + orchestrator). Systems and balance are explicitly still a work in progress.",
+    deliverableSteps: [
+      "Wire up Google/Microsoft OAuth (endpoints stubbed but return 501).",
+      "Balancing pass on economy, research, and market trading systems.",
+      "Public hosted demo via the orchestrator gateway."
     ]
   }
 ];

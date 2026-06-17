@@ -26,16 +26,16 @@
       }
 
       .project-header {
-        min-height: 60vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 4rem 2rem;
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(107, 157, 197, 0.1));
+        min-height: auto;
+        text-align: left;
+        padding: 5rem 3rem 3rem;
+        background: transparent;
         position: relative;
         overflow: hidden;
+        max-width: 1200px;
+        margin: 0 auto;
       }
+      @media (max-width: 720px) { .project-header { padding: 4rem 1.5rem 2rem; } }
 
       .project-header::before {
         content: '';
@@ -55,12 +55,11 @@
       }
 
       .project-header h1 {
-        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-size: clamp(2.5rem, 7vw, 3.8rem);
         font-weight: 800;
         margin-bottom: 1rem;
-        background: linear-gradient(135deg, #3B82F6 0%, #6B9DC5 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #1a1a1a;
+        letter-spacing: -0.02em;
       }
 
       .project-stats {
@@ -72,27 +71,32 @@
       }
 
       .stat-badge {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        padding: 2rem 1.5rem;
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        background: transparent;
+        padding: 0;
+        border: none;
+        text-align: left;
       }
 
       .stat-badge .number {
         font-size: 2.5rem;
         font-weight: 800;
-        background: linear-gradient(135deg, #3B82F6 0%, #6B9DC5 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #1a1a1a;
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 0.02em;
       }
 
       .stat-badge .label {
-        font-size: 0.9rem;
-        color: #666;
-        margin-top: 0.5rem;
+        font-size: 0.78rem;
+        color: #777;
+        margin-top: 0.2rem;
         font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .project-stats {
+        text-align: left;
+        margin-left: 0 !important;
       }
 
       .content-grid {
@@ -106,93 +110,105 @@
       }
 
       .section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-        text-align: center;
+        font-size: 2rem;
+        margin: 0 0 2rem;
+        text-align: left;
+        color: #1a1a1a;
+        border-bottom: 1px solid #1a1a1a;
+        padding-bottom: 0.6rem;
+        display: inline-block;
+        letter-spacing: -0.01em;
       }
 
       .features-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 0;
         margin: 2rem 0;
+        border-top: 1px solid #d6d2c8;
+        border-left: 1px solid #d6d2c8;
       }
 
       .feature-card {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        padding: 2rem;
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+        background: transparent;
+        padding: 1.8rem 1.6rem;
+        border-right: 1px solid #d6d2c8;
+        border-bottom: 1px solid #d6d2c8;
       }
 
       .feature-card h3 {
-        margin-top: 0;
-        color: #3B82F6;
-        font-size: 1.3rem;
+        margin: 0 0 0.6rem 0;
+        color: #1a1a1a;
+        font-size: 1.05rem;
+        font-weight: 700;
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
       }
+      .feature-card h3::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #2C5F5D;
+      }
+      .feature-card p { color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0; }
 
       .countries-section {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        padding: 3rem;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-        margin: 3rem 0;
+        background: transparent;
+        padding: 0;
+        margin: 2rem 0;
       }
 
       .countries-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1rem;
-        margin-top: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0;
+        margin-top: 1.5rem;
+        border-top: 1px solid #d6d2c8;
+        border-left: 1px solid #d6d2c8;
       }
 
       .country-badge {
-        background: linear-gradient(135deg, #3B82F6, #6B9DC5);
-        color: white;
-        padding: 1rem;
-        border-radius: 10px;
-        text-align: center;
-        font-weight: 600;
+        background: transparent;
+        color: #1a1a1a;
+        padding: 0.8rem 1rem;
+        text-align: left;
+        font-weight: 500;
         font-size: 0.9rem;
+        border-right: 1px solid #d6d2c8;
+        border-bottom: 1px solid #d6d2c8;
       }
 
       .cta-section {
-        text-align: center;
+        text-align: left;
         margin: 4rem 0;
         padding: 3rem;
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(107, 157, 197, 0.1));
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.9);
+        background: #1a1a1a;
+        color: #f3efe8;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: center;
       }
+      .cta-section h2 { color: #f3efe8 !important; border: none !important; }
+      .cta-section p { color: #c8c4ba !important; }
+      @media (max-width: 720px) { .cta-section { grid-template-columns: 1fr; } }
 
       .cta-button {
         display: inline-block;
-        background: linear-gradient(135deg, #3B82F6, #6B9DC5);
+        background: #2C5F5D;
         color: white;
-        padding: 1rem 2.5rem;
-        border-radius: 10px;
+        padding: 0.9rem 1.8rem;
         text-decoration: none;
         font-weight: 700;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin: 1rem;
+        margin: 0.25rem 0.5rem 0.25rem 0;
         border: none;
         cursor: pointer;
+        font-size: 0.95rem;
       }
 
-      .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.3);
-      }
+      .cta-button:hover { background: #1f4644; }
 
       .nav-back {
         max-width: 1100px;
@@ -201,7 +217,7 @@
       }
 
       .nav-back a {
-        color: #3B82F6;
+        color: #1a1a1a;
         text-decoration: none;
         font-weight: 600;
         display: inline-flex;
@@ -234,13 +250,14 @@
 
     <!-- Header -->
     <header class="project-header">
-      <div class="project-header-content" data-aos="fade-up">
+      <div class="project-header-content">
+        <p style="font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: #2C5F5D; margin: 0 0 1.2rem; font-weight: 600;">Chrome & Edge — Live</p>
         <h1>Tab Sorter Pro</h1>
-        <p style="font-size: 1.2rem; color: #666; margin: 1rem 0;">
-          Smart tab management for Microsoft Edge. Organize, group, and reclaim your focus.
+        <p style="font-size: 1.1rem; color: #555; margin: 1.2rem 0 0; max-width: 36rem; line-height: 1.55;">
+          Smart tab management for Chrome and Microsoft Edge. Organize, group, and reclaim your focus.
         </p>
-        
-        <div class="project-stats">
+
+        <div class="project-stats" style="display: flex; gap: 3rem; margin-top: 2.5rem; flex-wrap: wrap;">
           <div class="stat-badge">
             <div class="number">64+</div>
             <div class="label">Active Users</div>
@@ -259,10 +276,10 @@
 
     <main class="content-grid">
       <!-- Overview Section -->
-      <section class="section" data-aos="fade-up">
+      <section class="section">
         <h2>Overview</h2>
-        <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto;">
-          Tab Sorter Pro is a powerful Microsoft Edge extension designed to transform how you manage browser tabs. Whether you're a student juggling research, a developer with dozens of documentation tabs, or just someone trying to stay organized, Tab Sorter Pro automates the chaos and lets you focus on what matters.
+        <p style="font-size: 1.05rem; line-height: 1.75; text-align: left; max-width: 720px; margin: 0;">
+          Tab Sorter Pro is a cross-browser extension available on the Chrome Web Store and Microsoft Edge Add-ons, designed to transform how you manage browser tabs. Whether you're a student juggling research, a developer with dozens of documentation tabs, or just someone trying to stay organized, Tab Sorter Pro automates the chaos and lets you focus on what matters.
         </p>
       </section>
 
@@ -270,72 +287,72 @@
       <section class="section" data-aos="fade-up">
         <h2>Key Features</h2>
         <div class="features-grid">
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-            <h3>🎯 Smart Auto-Sort</h3>
+          <div class="feature-card">
+            <h3>Smart Auto-Sort</h3>
             <p>Intelligently organize tabs by domain, category, and purpose. One click organizes your entire workspace.</p>
           </div>
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
-            <h3>📊 Group Management</h3>
+          <div class="feature-card">
+            <h3>Group Management</h3>
             <p>Create custom tab groups with color coding. Work context-aware tab organization for maximum productivity.</p>
           </div>
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-            <h3>🧹 One-Click Cleanup</h3>
+          <div class="feature-card">
+            <h3>One-Click Cleanup</h3>
             <p>Remove duplicates, close inactive tabs, and purge clutter instantly. Reclaim memory and focus.</p>
           </div>
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
-            <h3>🔍 Tab Search</h3>
+          <div class="feature-card">
+            <h3>Tab Search</h3>
             <p>Instantly find any tab across your entire browser session. No more hunting through dozens of tabs.</p>
           </div>
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-            <h3>⌨️ Keyboard Shortcuts</h3>
+          <div class="feature-card">
+            <h3>Keyboard Shortcuts</h3>
             <p>Power user shortcuts for instant access. Speed up your workflow with customizable hotkeys.</p>
           </div>
-          <div class="feature-card" data-aos="fade-up" data-aos-delay="350">
-            <h3>☁️ Cross-Device Sync</h3>
+          <div class="feature-card">
+            <h3>Cross-Device Sync</h3>
             <p>Sync your tab organization across all your devices. Start on one device, continue on another seamlessly.</p>
           </div>
         </div>
       </section>
 
       <!-- Global Reach Section -->
-      <section class="section" data-aos="fade-up">
+      <section class="section">
         <h2>Global Reach</h2>
-        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
-          Used by developers, students, and professionals in <strong>22 countries</strong> across 4 continents. Tab Sorter Pro is trusted worldwide.
+        <p style="text-align: left; font-size: 1.05rem; margin: 0 0 2rem; max-width: 720px;">
+          Used by developers, students, and professionals in <strong>22 countries</strong> across 4 continents.
         </p>
         <div class="countries-section">
           <div class="countries-grid">
-            <div class="country-badge">🇦🇺 Australia</div>
-            <div class="country-badge">🇧🇷 Brazil</div>
-            <div class="country-badge">🇨🇦 Canada</div>
-            <div class="country-badge">🇨🇳 China</div>
-            <div class="country-badge">🇨🇿 Czechia</div>
-            <div class="country-badge">🇫🇷 France</div>
-            <div class="country-badge">🇩🇪 Germany</div>
-            <div class="country-badge">🇭🇰 Hong Kong SAR</div>
-            <div class="country-badge">🇭🇺 Hungary</div>
-            <div class="country-badge">🇮🇳 India</div>
-            <div class="country-badge">🇮🇩 Indonesia</div>
-            <div class="country-badge">🇯🇵 Japan</div>
-            <div class="country-badge">🇰🇷 Korea</div>
-            <div class="country-badge">🇲🇾 Malaysia</div>
-            <div class="country-badge">🇳🇱 Netherlands</div>
-            <div class="country-badge">🇵🇭 Philippines</div>
-            <div class="country-badge">🇸🇬 Singapore</div>
-            <div class="country-badge">🇸🇪 Sweden</div>
-            <div class="country-badge">🇨🇭 Switzerland</div>
-            <div class="country-badge">🇬🇧 United Kingdom</div>
-            <div class="country-badge">🇺🇸 United States</div>
-            <div class="country-badge">🇻🇳 Vietnam</div>
+            <div class="country-badge">Australia</div>
+            <div class="country-badge">Brazil</div>
+            <div class="country-badge">Canada</div>
+            <div class="country-badge">China</div>
+            <div class="country-badge">Czechia</div>
+            <div class="country-badge">France</div>
+            <div class="country-badge">Germany</div>
+            <div class="country-badge">Hong Kong SAR</div>
+            <div class="country-badge">Hungary</div>
+            <div class="country-badge">India</div>
+            <div class="country-badge">Indonesia</div>
+            <div class="country-badge">Japan</div>
+            <div class="country-badge">Korea</div>
+            <div class="country-badge">Malaysia</div>
+            <div class="country-badge">Netherlands</div>
+            <div class="country-badge">Philippines</div>
+            <div class="country-badge">Singapore</div>
+            <div class="country-badge">Sweden</div>
+            <div class="country-badge">Switzerland</div>
+            <div class="country-badge">United Kingdom</div>
+            <div class="country-badge">United States</div>
+            <div class="country-badge">Vietnam</div>
           </div>
         </div>
       </section>
 
       <!-- Technical Section -->
-      <section class="section" data-aos="fade-up">
+      <section class="section">
         <h2>Built With</h2>
-        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
-          Modern, efficient technology stack for speed and reliability.
+        <p style="text-align: left; font-size: 1.05rem; margin: 0 0 2rem; max-width: 720px;">
+          Lean stack — single codebase running across both browser stores.
         </p>
         <div class="features-grid">
           <div class="feature-card">
@@ -343,8 +360,8 @@
             <p>Type-safe code for maintainability and reliability.</p>
           </div>
           <div class="feature-card">
-            <h3>Edge APIs</h3>
-            <p>Leverages Microsoft Edge's powerful extension APIs.</p>
+            <h3>Chrome & Edge APIs</h3>
+            <p>Leverages the WebExtensions API surface shared by Chrome and Microsoft Edge for a single, consistent codebase.</p>
           </div>
           <div class="feature-card">
             <h3>Performance First</h3>
@@ -354,14 +371,21 @@
       </section>
 
       <!-- CTA Section -->
-      <section class="cta-section" data-aos="fade-up">
-        <h2 style="margin-top: 0;">Get Tab Sorter Pro</h2>
-        <p style="font-size: 1.1rem; margin: 1rem 0;">
-          Start organizing your tabs in seconds. Free to download and use.
-        </p>
-        <a href="https://microsoftedge.microsoft.com/addons/detail/tab-sorter-pro/knijhblmdgkokapjnghamplmlpmiohpm" target="_blank" class="cta-button">
-          Install on Microsoft Edge
-        </a>
+      <section class="cta-section">
+        <div>
+          <h2 style="margin: 0 0 0.6rem 0; display: block;">Get Tab Sorter Pro</h2>
+          <p style="font-size: 1rem; margin: 0;">
+            Free to download and use. Available on both stores.
+          </p>
+        </div>
+        <div style="text-align: right;">
+          <a href="https://chromewebstore.google.com/detail/tab-sorter-pro/iicmneboehhnamjbbnfblejfgemgihnd" target="_blank" class="cta-button">
+            Install on Chrome
+          </a>
+          <a href="https://microsoftedge.microsoft.com/addons/detail/tab-sorter-pro/knijhblmdgkokapjnghamplmlpmiohpm" target="_blank" class="cta-button" style="background: transparent; border: 1px solid #f3efe8; color: #f3efe8;">
+            Install on Edge
+          </a>
+        </div>
       </section>
     </main>
 
