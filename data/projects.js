@@ -2,7 +2,7 @@ window.PROJECTS = [
   {
     id: "zoande-brokersim",
     title: "BrokerSIM",
-    owner: "Pablo",
+    owner: "Dima & Pablo",
     repoUrl: "https://github.com/Zoande/BrokerSIM",
     localPath: "repos/Zoande__BrokerSIM",
     tech: ["TypeScript", "Vite", "Browser Game"],
@@ -66,39 +66,6 @@ window.PROJECTS = [
       "Replace placeholder obstacle logic with full word/action generation.",
       "Complete collision/game-over balancing.",
       "Add mobile-friendly input mode."
-    ]
-  },
-  {
-    id: "dh-brokersim",
-    title: "BrokerSIM",
-    owner: "Pablo & Dima",
-    repoUrl: "https://github.com/DH4410/BrokerSIM",
-    localPath: "repos/DH4410__BrokerSIM",
-    tech: ["React 19", "TypeScript", "Vite", "Three.js", "WebGL", "GLTF Assets"],
-    stage: "Playable vertical slice (deal desk + 3D warehouse)",
-    summary:
-      "A broker simulation where each day you source luxury inventory, negotiate with personality-driven clients, then complete physical fulfillment in a 3D warehouse before dispatch.",
-    details: [
-      "Simulation loop is fully connected: browsing supplier offers, negotiating a client deal, switching to warehouse handling, then dispatching and scoring outcomes.",
-      "Supplier generation tracks list price, condition score, inbound shipping, inbound risk, and supplier trust, which all affect final margin and reliability.",
-      "Negotiation system classifies chat intent (discount, shipping, trust, meet-middle, walk-away, threat, etc.) and updates mood/leverage differently for Friendly, Analytical, and Aggressive clients.",
-      "Day-level events/challenges (for example delay spikes and fraud pressure) dynamically change demand, dispute risk, and deal difficulty.",
-      "Tech stack in the shipped build shows React + Vite UI/state flow with a Three.js-powered warehouse scene and GLTF model assets.",
-      "Development process appears vertical-slice-first: economy and supplier math, then dialogue/negotiation heuristics, then 3D fulfillment and day-event layering."
-    ],
-    screenshots: [
-      "Placeholder: Deal desk overview with supplier cards, client budget/condition target, and profit projection visible.",
-      "Placeholder: Live negotiation chat showing intent-driven replies across different client personalities.",
-      "Placeholder: 3D warehouse phase while carrying an item to the dispatch station (WASD movement UI visible).",
-      "Placeholder: Post-dispatch summary screen with profit, delays, disputes, trust shifts, and challenge outcome."
-    ],
-    status:
-      "Playable and coherent today: one full broker day can be completed end-to-end. Core mechanics are in place, while long-term progression, persistence, and content expansion are the main next-step gaps.",
-    deliverableSteps: [
-      "Add persistent profile save for cash, supplier trust, challenge streaks, and client history.",
-      "Expand the content pool (more categories, personas, events, and edge-case scenarios) with balancing passes for shipping risk and margin curves.",
-      "Introduce longitudinal reputation consequences so negotiation behavior carries real effects across multiple days.",
-      "Capture final in-game screenshots to replace placeholders and annotate each core gameplay phase for the portfolio page."
     ]
   },
   {

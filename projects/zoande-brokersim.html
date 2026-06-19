@@ -3,98 +3,1096 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project | Project Hub</title>
+    <title>BrokerSIM | EliteDevs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
-    <!-- Animate.css for smooth animations -->
-    <link 
-      rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <!-- AOS (Animate On Scroll) for scroll-triggered animations -->
-    <link 
-      rel="stylesheet" 
-      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-    />
     <link rel="stylesheet" href="../styles-premium-light.css" />
+    <style>
+      :root {
+        --teal: #2C5F5D;
+        --teal-light: #3a7a77;
+        --orange: #D97634;
+        --ink: #1a1a1a;
+        --muted: #777;
+        --rule: #d6d2c8;
+        --paper: #fffdf9;
+        --bg-off: #f5f3ef;
+      }
+
+      body {
+        background: linear-gradient(-45deg, #f8f9fa, #eef2f5, #e0e7ee, #f3f0f5);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      /* ── HEADER ── */
+      .project-header {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5rem 3rem 3rem;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      @media (max-width: 820px) {
+        .project-header { grid-template-columns: 1fr; padding: 4rem 1.5rem 2rem; }
+      }
+      .project-header h1 {
+        font-size: clamp(2.5rem, 7vw, 3.8rem);
+        font-weight: 800;
+        margin: 0 0 1rem;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+      .eyebrow {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--teal);
+        font-weight: 600;
+        margin: 0 0 1.2rem;
+      }
+      .header-screenshot {
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--ink);
+        display: block;
+      }
+
+      /* ── METRICS STRIP ── */
+      .metrics-strip {
+        background: var(--ink);
+        color: #f3efe8;
+        padding: 2.2rem 3rem;
+      }
+      .metrics-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2rem;
+      }
+      @media (max-width: 900px) { .metrics-inner { grid-template-columns: repeat(3, 1fr); } }
+      @media (max-width: 520px) { .metrics-inner { grid-template-columns: repeat(2, 1fr); } }
+      .metric-item .num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.6rem;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        color: #fff;
+      }
+      .metric-item .lbl {
+        font-size: 0.72rem;
+        color: #aaa;
+        margin-top: 0.3rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* ── CONTENT ── */
+      .content-grid { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+      .section { margin: 5rem 0; }
+      .section h2 {
+        font-size: 2rem;
+        margin: 0 0 2rem;
+        color: var(--ink);
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 0.6rem;
+        display: inline-block;
+        letter-spacing: -0.01em;
+      }
+      .section-lead {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        max-width: 780px;
+        color: #333;
+        margin: 0 0 2.5rem;
+      }
+
+      /* ── FEATURE GRID ── */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 0;
+        border-top: 1px solid var(--rule);
+        border-left: 1px solid var(--rule);
+      }
+      .feature-card {
+        background: transparent;
+        padding: 1.8rem 1.6rem;
+        border-right: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+      .feature-card h3 {
+        margin: 0 0 0.6rem;
+        color: var(--ink);
+        font-size: 1.05rem;
+        font-weight: 700;
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+      }
+      .feature-card h3::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        flex-shrink: 0;
+        background: var(--teal);
+      }
+      .feature-card p { color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0; }
+      .feature-card .tag {
+        display: inline-block;
+        background: var(--bg-off);
+        border: 1px solid var(--rule);
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 0.2rem 0.6rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+
+      /* ── PROTO GRID (intent table) ── */
+      .proto-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+      @media (max-width: 720px) { .proto-grid { grid-template-columns: 1fr; } }
+      .proto-box {
+        border: 1px solid var(--rule);
+        background: var(--paper);
+      }
+      .proto-box-head {
+        background: var(--ink);
+        color: #f3efe8;
+        padding: 0.55rem 1rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+      .proto-msg {
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid var(--rule);
+        display: flex;
+        align-items: baseline;
+        gap: 0.8rem;
+        font-size: 0.88rem;
+      }
+      .proto-msg:last-child { border-bottom: none; }
+      .proto-type {
+        font-family: monospace;
+        font-weight: 700;
+        color: var(--teal);
+        white-space: nowrap;
+        min-width: 130px;
+        flex-shrink: 0;
+      }
+      .proto-desc { color: #555; line-height: 1.5; }
+
+      /* ── SCREENSHOT SLOTS ── */
+      .screenshot-pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin: 2.5rem 0 0;
+      }
+      @media (max-width: 640px) { .screenshot-pair { grid-template-columns: 1fr; } }
+      .screenshot-pair figure, .screenshot-full { margin: 0; }
+      .screenshot-pair img, .screenshot-full img {
+        width: 100%;
+        border: 1px solid var(--rule);
+        display: block;
+      }
+      .screenshot-full { margin: 2.5rem 0 0; }
+      figcaption {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-top: 0.4rem;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* ── DATA TABLE ── */
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+        font-size: 0.9rem;
+      }
+      .data-table th, .data-table td {
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--rule);
+      }
+      .data-table th {
+        background: var(--ink);
+        color: #f3efe8;
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .data-table td { color: #444; }
+      .data-table td:first-child { font-weight: 700; color: var(--ink); }
+      .data-table tr:nth-child(even) td { background: var(--paper); }
+
+      /* ── HIGHLIGHT BLOCK ── */
+      .highlight-block {
+        background: var(--paper);
+        border-left: 3px solid var(--teal);
+        padding: 1.2rem 1.5rem;
+        margin: 1.5rem 0;
+        font-size: 0.95rem;
+        color: #333;
+        line-height: 1.7;
+      }
+      .highlight-block strong { color: var(--ink); }
+
+      /* ── STAT ROW ── */
+      .stats-row {
+        display: flex;
+        gap: 3rem;
+        margin: 0 0 3rem;
+        flex-wrap: wrap;
+      }
+      .stat .num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.5rem;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+        line-height: 1;
+      }
+      .stat .lbl {
+        font-size: 0.74rem;
+        color: var(--muted);
+        margin-top: 0.3rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* ── TECH TAGS ── */
+      .tech-tag {
+        display: inline-block;
+        background: var(--bg-off);
+        border: 1px solid var(--rule);
+        font-size: 0.78rem;
+        font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 0.3rem 0.75rem;
+        margin: 0.2rem;
+        color: var(--ink);
+      }
+      .tech-tags { margin: 1.5rem 0; }
+
+      /* ── CTA ── */
+      .cta-section {
+        text-align: left;
+        margin: 4rem 0;
+        padding: 3rem;
+        background: var(--ink);
+        color: #f3efe8;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .cta-section h2 { color: #f3efe8 !important; border: none !important; margin: 0 0 0.6rem; }
+      .cta-section p { color: #c8c4ba !important; margin: 0; }
+      @media (max-width: 720px) { .cta-section { grid-template-columns: 1fr; } }
+      .cta-button {
+        display: inline-block;
+        background: var(--orange);
+        color: #fff;
+        padding: 0.9rem 1.8rem;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin: 0.25rem 0 0.25rem 0.5rem;
+      }
+      .cta-button:hover { background: #b85f24; }
+      .cta-button.ghost {
+        background: transparent;
+        border: 1px solid #f3efe8;
+        color: #f3efe8;
+      }
+      .cta-button.teal {
+        background: var(--teal);
+      }
+      .cta-button.teal:hover { background: var(--teal-light); }
+
+      /* ── NAV ── */
+      .nav-back { max-width: 1100px; margin: 2rem auto; padding: 0 2rem; }
+      .nav-back a {
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .nav-back a:hover { text-decoration: underline; }
+
+      /* ── TABLE OF CONTENTS ── */
+      .toc-sidebar {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: calc(50% + 580px);
+        width: 168px;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      @media (max-width: 1500px) { .toc-sidebar { display: none; } }
+      .toc-title {
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 0 0 0.6rem 0.75rem;
+        border-left: 2px solid var(--rule);
+      }
+      .toc-link {
+        display: block;
+        padding: 0.3rem 0 0.3rem 0.75rem;
+        font-size: 0.75rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 500;
+        color: #999;
+        text-decoration: none;
+        border-left: 2px solid var(--rule);
+        transition: color 0.15s, border-color 0.15s;
+        line-height: 1.3;
+      }
+      .toc-link:hover { color: var(--ink); }
+      .toc-link.active {
+        color: var(--teal);
+        font-weight: 700;
+        border-left-color: var(--teal);
+      }
+
+      /* ── PHASE FLOW ── */
+      .phase-flow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border: 1px solid var(--ink);
+        margin: 2rem 0;
+      }
+      @media (max-width: 700px) { .phase-flow { grid-template-columns: 1fr 1fr; } }
+      .phase-step {
+        padding: 1.5rem 1.2rem;
+        border-right: 1px solid var(--ink);
+        position: relative;
+      }
+      .phase-step:last-child { border-right: none; }
+      .phase-num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.2rem;
+        color: var(--teal);
+        line-height: 1;
+        margin-bottom: 0.4rem;
+      }
+      .phase-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-family: 'Space Grotesk', sans-serif;
+        margin-bottom: 0.5rem;
+      }
+      .phase-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.4rem;
+      }
+      .phase-desc {
+        font-size: 0.85rem;
+        color: #666;
+        line-height: 1.5;
+      }
+      .phase-arrow {
+        position: absolute;
+        top: 50%;
+        right: -12px;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        color: var(--orange);
+        z-index: 1;
+        font-weight: 700;
+        line-height: 1;
+      }
+    </style>
   </head>
-  <body data-project-id="zoande-brokersim">
-    <!-- Navigation -->
+  <body>
     <nav class="site-nav">
       <div class="nav-container">
-        <a href="/" class="nav-logo">PORTFOLIO</a>
+        <a href="/" class="nav-logo">ELITEDEVS</a>
         <ul class="nav-menu">
           <li class="nav-item"><a href="/">Home</a></li>
-          <li class="nav-item"><a href="/#projects">Projects</a></li>
+          <li class="nav-item"><a href="/#projects" class="active">Projects</a></li>
           <li class="nav-item"><a href="/about.html">About</a></li>
           <li class="nav-item"><a href="/contact.html">Contact</a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="bg-shape s1"></div>
-    <div class="bg-shape s2"></div>
-    <div class="bg-shape s3"></div>
-    <div class="bg-shape s4"></div>
-    <div class="bg-shape s5"></div>
+    <div class="nav-back">
+      <a href="/#projects">← Back to Projects</a>
+    </div>
 
-    <main id="project-page" class="project-layout">
-      <a class="back-link" href="/">Back to all projects</a>
+    <!-- ── HEADER ── -->
+    <header class="project-header">
+      <div>
+        <p class="eyebrow">Playable Prototype — Dima & Pablo</p>
+        <h1>BrokerSIM</h1>
+        <p style="font-size: 1.1rem; color: #555; margin: 1.2rem 0 0; max-width: 36rem; line-height: 1.55;">
+          A luxury goods broker simulation. Each in-game day you scan supplier listings on SupplyNet, open a deal desk with a personality-driven client, negotiate price and terms in real time, physically handle the package in a Three.js 3D warehouse, then dispatch — with every outcome feeding back into your reputation and cash. Built on React 19, TypeScript, Vite, and Three.js with GLTF warehouse assets.
+        </p>
+        <a href="https://github.com/Zoande/BrokerSIM" target="_blank" rel="noopener noreferrer" class="cta-button teal" style="display: inline-block; margin: 2rem 0 0;">View on GitHub →</a>
+      </div>
+      <img
+        src="../resources/brokersim/brokersimscreenshotslot2.png"
+        alt="BrokerSIM SupplyNet — supplier listings with trust scores and margin projections"
+        class="header-screenshot"
+      />
+    </header>
 
-      <section class="project-hero">
-        <p class="owner" id="project-owner"></p>
-        <h1 id="project-title"></h1>
-        <p id="project-summary"></p>
-        <div id="project-tech" class="chip-row" style="margin-top: 1.2rem"></div>
-        <div class="actions">
-          <a id="project-repo" class="button" href="#" target="_blank" rel="noopener noreferrer">Open GitHub Repo</a>
-          <a class="button ghost" href="/">View All Projects</a>
+    <!-- ── METRICS STRIP ── -->
+    <div class="metrics-strip">
+      <div class="metrics-inner">
+        <div class="metric-item">
+          <div class="num">3</div>
+          <div class="lbl">Core Game Phases</div>
+        </div>
+        <div class="metric-item">
+          <div class="num">3</div>
+          <div class="lbl">Client Personalities</div>
+        </div>
+        <div class="metric-item">
+          <div class="num">8+</div>
+          <div class="lbl">Negotiation Intents</div>
+        </div>
+        <div class="metric-item">
+          <div class="num">3D</div>
+          <div class="lbl">Warehouse Engine</div>
+        </div>
+        <div class="metric-item">
+          <div class="num">5</div>
+          <div class="lbl">Supplier Trust Factors</div>
+        </div>
+        <div class="metric-item">
+          <div class="num">TS</div>
+          <div class="lbl">TypeScript · React 19</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc-sidebar" aria-label="Page sections">
+      <div class="toc-title">On this page</div>
+      <a class="toc-link" href="#at-a-glance">At a glance</a>
+      <a class="toc-link" href="#architecture">Architecture</a>
+      <a class="toc-link" href="#sourcing">SupplyNet</a>
+      <a class="toc-link" href="#negotiation">Negotiation</a>
+      <a class="toc-link" href="#warehouse">Warehouse 3D</a>
+      <a class="toc-link" href="#events">Day events</a>
+      <a class="toc-link" href="#progression">Progression</a>
+      <a class="toc-link" href="#stack">Tech stack</a>
+      <a class="toc-link" href="#status">Status</a>
+    </nav>
+
+    <main class="content-grid">
+
+      <!-- ── AT A GLANCE ── -->
+      <section id="at-a-glance" class="section">
+        <h2>At a glance</h2>
+        <div class="stats-row">
+          <div class="stat"><div class="num">3</div><div class="lbl">Distinct game phases</div></div>
+          <div class="stat"><div class="num">1</div><div class="lbl">Full broker day, end-to-end</div></div>
+          <div class="stat"><div class="num">3D</div><div class="lbl">Three.js warehouse</div></div>
+          <div class="stat"><div class="num">React 19</div><div class="lbl">+ TypeScript + Vite</div></div>
+        </div>
+        <p class="section-lead">
+          BrokerSIM puts you in the role of a luxury goods middleman. You don't manufacture anything — you find deals, negotiate margins, and physically move product to the right buyer before the day's deadline. The vertical slice is fully connected: supplier browsing, live negotiation, warehouse fulfillment, and dispatch scoring all flow together as one coherent broker workday.
+        </p>
+
+        <!-- Phase flow diagram -->
+        <div class="phase-flow">
+          <div class="phase-step">
+            <div class="phase-num">01</div>
+            <div class="phase-label">Phase</div>
+            <div class="phase-name">SupplyNet</div>
+            <div class="phase-desc">Browse supplier listings, compare condition scores, inbound risk, and trust. Lock a purchase.</div>
+            <span class="phase-arrow">›</span>
+          </div>
+          <div class="phase-step">
+            <div class="phase-num">02</div>
+            <div class="phase-label">Phase</div>
+            <div class="phase-name">BrokerRoom</div>
+            <div class="phase-desc">Open a deal desk with a waiting client. Negotiate price, shipping, and terms across a limited round window.</div>
+            <span class="phase-arrow">›</span>
+          </div>
+          <div class="phase-step">
+            <div class="phase-num">03</div>
+            <div class="phase-label">Phase</div>
+            <div class="phase-name">Warehouse</div>
+            <div class="phase-desc">Switch to the Three.js 3D warehouse. Move to the inbound package, pick it up, walk to dispatch, and trigger shipment.</div>
+            <span class="phase-arrow">›</span>
+          </div>
+          <div class="phase-step">
+            <div class="phase-num">04</div>
+            <div class="phase-label">Phase</div>
+            <div class="phase-name">Deal Log</div>
+            <div class="phase-desc">Review day outcomes: profit, delays, disputes, trust shifts, and challenge results. Track your broker career stats.</div>
+          </div>
+        </div>
+
+        <figure class="screenshot-full">
+          <img src="../resources/brokersim/brokersimscreenshotslot6.png" alt="BrokerSIM deal log with profit calculator and broker profile" />
+          <figcaption>End-of-day view — deal outcomes, profit calculator, broker stats, and the office upgrade shop.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ── ARCHITECTURE ── -->
+      <section id="architecture" class="section">
+        <h2>Architecture</h2>
+        <p class="section-lead">
+          BrokerSIM is a client-side React app with no backend — all game state lives in React context and component state, advancing via user actions rather than a server tick. The Three.js warehouse scene is isolated as a self-contained module that receives item data as props and fires dispatch callbacks back into the React game state. Every phase is a route in the same Vite SPA.
+        </p>
+
+        <svg viewBox="0 0 960 580" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;margin:2rem 0;font-family:'Space Grotesk',sans-serif;">
+          <defs>
+            <marker id="arr-o" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#D97634"/></marker>
+            <marker id="arr-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2C5F5D"/></marker>
+            <marker id="arr-g" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#aaa"/></marker>
+          </defs>
+
+          <!-- ROW 1: Browser Client -->
+          <rect x="60" y="18" width="840" height="72" fill="#f0f8f7" stroke="#2C5F5D" stroke-width="1.5"/>
+          <text x="70" y="35" fill="#2C5F5D" font-size="9" font-weight="700" letter-spacing="1">BROWSER CLIENT — SPA</text>
+          <text x="480" y="54" text-anchor="middle" fill="#1a1a1a" font-size="13" font-weight="700">React 19 + Vite  ·  TypeScript  ·  React Context (game state)</text>
+          <text x="480" y="70" text-anchor="middle" fill="#555" font-size="10">Routes: / · /supplynet · /brokerroom · /warehouse · /deallog · /profile · /dailynews  ·  No backend — all state is client-side</text>
+          <text x="480" y="84" text-anchor="middle" fill="#555" font-size="10">Supplier generation · NPC intent engine · Three.js scene bridge · Daily events system</text>
+
+          <!-- ROW 2: Three phase modules -->
+          <!-- Labels -->
+          <text x="162" y="118" text-anchor="middle" fill="#bbb" font-size="9" font-weight="700" letter-spacing="1">SOURCING</text>
+          <text x="480" y="118" text-anchor="middle" fill="#bbb" font-size="9" font-weight="700" letter-spacing="1">NEGOTIATION</text>
+          <text x="798" y="118" text-anchor="middle" fill="#bbb" font-size="9" font-weight="700" letter-spacing="1">FULFILLMENT</text>
+
+          <!-- Arrow: Browser → SupplyNet -->
+          <path d="M 162 90 L 162 148" stroke="#D97634" stroke-width="1.5" fill="none" marker-end="url(#arr-o)"/>
+          <!-- Arrow: Browser → BrokerRoom -->
+          <path d="M 480 90 L 480 148" stroke="#D97634" stroke-width="1.5" fill="none" marker-end="url(#arr-o)"/>
+          <!-- Arrow: Browser → Warehouse -->
+          <path d="M 798 90 L 798 148" stroke="#D97634" stroke-width="1.5" fill="none" marker-end="url(#arr-o)"/>
+
+          <!-- SupplyNet box -->
+          <rect x="28" y="148" width="268" height="100" fill="#f0f8f7" stroke="#2C5F5D" stroke-width="1.5"/>
+          <text x="38" y="165" fill="#2C5F5D" font-size="9" font-weight="700" letter-spacing="1">SUPPLYNET</text>
+          <text x="162" y="184" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">/supplynet</text>
+          <text x="162" y="199" text-anchor="middle" fill="#555" font-size="9">Procedural supplier listings per day</text>
+          <text x="162" y="212" text-anchor="middle" fill="#555" font-size="9">List price · condition · inbound shipping</text>
+          <text x="162" y="225" text-anchor="middle" fill="#555" font-size="9">inbound risk · supplier trust score</text>
+          <text x="162" y="238" text-anchor="middle" fill="#D97634" font-size="9" font-weight="600">Purchase selection → passes to BrokerRoom</text>
+
+          <!-- BrokerRoom box -->
+          <rect x="346" y="148" width="268" height="100" fill="#f0f8f7" stroke="#2C5F5D" stroke-width="1.5"/>
+          <text x="356" y="165" fill="#2C5F5D" font-size="9" font-weight="700" letter-spacing="1">BROKERROOM</text>
+          <text x="480" y="184" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">/brokerroom</text>
+          <text x="480" y="199" text-anchor="middle" fill="#555" font-size="9">Client queue: Friendly · Analytical · Aggressive</text>
+          <text x="480" y="212" text-anchor="middle" fill="#555" font-size="9">Intent classifier: 8+ intent categories</text>
+          <text x="480" y="225" text-anchor="middle" fill="#555" font-size="9">Mood + leverage tracking per round</text>
+          <text x="480" y="238" text-anchor="middle" fill="#D97634" font-size="9" font-weight="600">Closed deal → item + terms → Warehouse</text>
+
+          <!-- Warehouse box -->
+          <rect x="664" y="148" width="268" height="100" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.5"/>
+          <text x="674" y="165" fill="#1a1a1a" font-size="9" font-weight="700" letter-spacing="1">WAREHOUSE 3D</text>
+          <text x="798" y="184" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">/warehouse  ·  Three.js</text>
+          <text x="798" y="199" text-anchor="middle" fill="#555" font-size="9">WebGL scene · GLTF models · WASD movement</text>
+          <text x="798" y="212" text-anchor="middle" fill="#555" font-size="9">Package pickup · dispatch station · shelf grid</text>
+          <text x="798" y="225" text-anchor="middle" fill="#555" font-size="9">Shipping method selection before dispatch</text>
+          <text x="798" y="238" text-anchor="middle" fill="#D97634" font-size="9" font-weight="600">Dispatch event → outcome → Deal Log</text>
+
+          <!-- Horizontal flow arrows -->
+          <!-- SupplyNet → BrokerRoom -->
+          <path d="M 296 198 L 346 198" stroke="#2C5F5D" stroke-width="1.5" fill="none" marker-end="url(#arr-t)"/>
+          <text x="321" y="193" text-anchor="middle" fill="#2C5F5D" font-size="8" font-weight="600">item</text>
+          <!-- BrokerRoom → Warehouse -->
+          <path d="M 614 198 L 664 198" stroke="#2C5F5D" stroke-width="1.5" fill="none" marker-end="url(#arr-t)"/>
+          <text x="639" y="193" text-anchor="middle" fill="#2C5F5D" font-size="8" font-weight="600">deal</text>
+
+          <!-- ROW 3: Game State + Daily Events -->
+          <!-- Down arrows to game state -->
+          <path d="M 162 248 L 162 308" stroke="#D97634" stroke-width="1.2" fill="none" marker-end="url(#arr-o)"/>
+          <path d="M 480 248 L 480 308" stroke="#D97634" stroke-width="1.2" fill="none" marker-end="url(#arr-o)"/>
+          <path d="M 798 248 L 798 308" stroke="#D97634" stroke-width="1.2" fill="none" marker-end="url(#arr-o)"/>
+          <text x="96" y="282" fill="#D97634" font-size="9" font-weight="600">writes state</text>
+
+          <!-- Game State box -->
+          <rect x="28" y="308" width="578" height="84" fill="#fffdf9" stroke="#d6d2c8" stroke-width="1.5"/>
+          <text x="38" y="325" fill="#777" font-size="9" font-weight="700" letter-spacing="1">GAME STATE — REACT CONTEXT</text>
+          <text x="317" y="344" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">selectedSupplier · dealTerms · brokerCash · brokerReputation · dayCounter</text>
+          <text x="317" y="360" text-anchor="middle" fill="#555" font-size="9">Client history · deal log entries · challenge state · office upgrade flags</text>
+          <text x="317" y="374" text-anchor="middle" fill="#555" font-size="9">No persistence yet — resets on page reload · localStorage save is the primary next milestone</text>
+          <text x="317" y="388" text-anchor="middle" fill="#aaa" font-size="9">Future: IndexedDB or localStorage for persistent broker career across sessions</text>
+
+          <!-- Daily Events box -->
+          <rect x="624" y="308" width="308" height="84" fill="#fafafa" stroke="#1a1a1a" stroke-width="1.2"/>
+          <text x="634" y="325" fill="#1a1a1a" font-size="9" font-weight="700" letter-spacing="1">DAILY EVENTS ENGINE</text>
+          <text x="778" y="344" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">BrokerSIM Daily</text>
+          <text x="778" y="359" text-anchor="middle" fill="#555" font-size="9">Per-day market conditions: delay boost</text>
+          <text x="778" y="372" text-anchor="middle" fill="#555" font-size="9">dispute boost · demand boost modifiers</text>
+          <text x="778" y="385" text-anchor="middle" fill="#D97634" font-size="9" font-weight="600">Modifies negotiation difficulty + shipping risk</text>
+
+          <!-- Daily Events → BrokerRoom arrow (up) -->
+          <path d="M 778 308 C 778 278 600 250 480 248" stroke="#aaa" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#arr-g)"/>
+          <text x="660" y="270" fill="#aaa" font-size="8" font-weight="600">event modifiers</text>
+
+          <!-- ROW 4: Deal Log + Broker Profile -->
+          <path d="M 200 392 L 200 450" stroke="#D97634" stroke-width="1.2" fill="none" marker-end="url(#arr-o)"/>
+
+          <!-- Deal Log box -->
+          <rect x="28" y="450" width="420" height="88" fill="#fffdf9" stroke="#d6d2c8" stroke-width="1.5"/>
+          <text x="38" y="467" fill="#777" font-size="9" font-weight="700" letter-spacing="1">DEAL LOG  ·  /deallog</text>
+          <text x="238" y="488" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">Per-deal: client · item · profit · satisfaction · status</text>
+          <text x="238" y="504" text-anchor="middle" fill="#555" font-size="9">Dispute flag · delay flag · trust delta per client · challenge outcome</text>
+          <text x="238" y="518" text-anchor="middle" fill="#555" font-size="9">Profit calculator: buy price · sell price · shipping cost → gross profit → margin → ROI</text>
+          <text x="238" y="530" text-anchor="middle" fill="#555" font-size="9">Running totals feed broker career stats on the profile screen</text>
+
+          <!-- Broker Profile box -->
+          <rect x="468" y="450" width="464" height="88" fill="#fafafa" stroke="#1a1a1a" stroke-width="1.2"/>
+          <text x="478" y="467" fill="#1a1a1a" font-size="9" font-weight="700" letter-spacing="1">BROKER PROFILE  ·  /profile</text>
+          <text x="700" y="488" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">Cash · Reputation (0–100) · Day counter · Deal streak</text>
+          <text x="700" y="504" text-anchor="middle" fill="#555" font-size="9">Office upgrades shop: Inspection Lab Lamp · CRM Negotiation Suite · Pro Packing Bench</text>
+          <text x="700" y="518" text-anchor="middle" fill="#555" font-size="9">Upgrades modify supplier visibility, negotiation advantage, and dispatch speed/reliability</text>
+          <text x="700" y="530" text-anchor="middle" fill="#555" font-size="9">Reputation gating: higher-trust suppliers and clients unlock as score climbs</text>
+
+          <!-- Deal Log → Broker Profile -->
+          <path d="M 448 494 L 468 494" stroke="#2C5F5D" stroke-width="1.5" fill="none" marker-end="url(#arr-t)"/>
+          <text x="458" y="488" text-anchor="middle" fill="#2C5F5D" font-size="8" font-weight="600">stats</text>
+        </svg>
+
+        <div class="highlight-block">
+          <strong>Vertical-slice-first development:</strong> BrokerSIM was built economy-first — supplier math and margin calculations were stable before the negotiation UI existed, the negotiation intent engine was wired before the warehouse was built, and the 3D scene was added last after the full data flow was already tested end-to-end in 2D. Each phase was playable and testable in isolation before being connected.
         </div>
       </section>
 
-      <section class="project-grid-two">
-        <article class="panel">
-          <h3>Current Status</h3>
-          <p id="project-stage"></p>
-          <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border); opacity: 0.3;" />
-          <p id="project-status"></p>
-        </article>
+      <!-- ── SUPPLYNET ── -->
+      <section id="sourcing" class="section">
+        <h2>SupplyNet — sourcing</h2>
+        <p class="section-lead">
+          The supplier browser generates a fresh set of listings each in-game day. Each supplier card exposes five variables that directly affect your margin and risk: list price, condition score (how worn or pristine the item is), inbound shipping cost, inbound delay/damage risk, and the supplier's overall trust rating built from past dealings. No two days look the same — you're always making a triage call under uncertainty.
+        </p>
 
-        <article class="panel">
-          <h3>Source Code</h3>
-          <p class="small-note">Local path</p>
-          <p id="project-local-path" style="font-family: 'Courier New', monospace; font-size: 0.9rem; color: var(--accent); word-break: break-all;"></p>
-          <p class="small-note" style="margin-top: 1rem;">GitHub</p>
-          <a id="project-repo-link" class="button ghost" href="#" target="_blank" rel="noopener noreferrer" style="margin-top: 0.5rem; width: fit-content;">Visit Repository ?</a>
-        </article>
+        <figure class="screenshot-full">
+          <img src="../resources/brokersim/brokersimscreenshotslot2.png" alt="SupplyNet supplier listings showing Celeste Platinum Band items with trust scores" />
+          <figcaption>SupplyNet — two listings for the same item from different suppliers. Trust, risk, and margin projections differ. Lower trust = cheaper list price but higher inbound risk.</figcaption>
+        </figure>
 
-        <article class="panel">
-          <h3>Architecture & Features</h3>
-          <ul id="project-details"></ul>
-        </article>
+        <table class="data-table" style="margin-top: 2.5rem;">
+          <thead>
+            <tr>
+              <th>Supplier Factor</th>
+              <th>What it drives</th>
+              <th>Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>List Price</td><td>Your cost basis — directly sets maximum achievable margin before shipping</td><td>Varies by item category</td></tr>
+            <tr><td>Condition Score</td><td>Client acceptance threshold — low condition triggers automatic disputes or walk-aways</td><td>0–100</td></tr>
+            <tr><td>Inbound Shipping</td><td>Reduces realized margin; affected by the daily delay-boost event modifier</td><td>Fixed cost per listing</td></tr>
+            <tr><td>Inbound Risk</td><td>Probability of damage or delay in transit — hits satisfaction and may trigger dispute flags</td><td>% chance per listing</td></tr>
+            <tr><td>Supplier Trust</td><td>Accumulated from past deals — higher trust unlocks better inventory and lower hidden risk</td><td>0–100 running score</td></tr>
+          </tbody>
+        </table>
 
-        <article class="panel">
-          <h3>Roadmap</h3>
-          <ul id="project-steps"></ul>
-        </article>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="tag">Generation</div>
+            <h3>Per-day supplier pool</h3>
+            <p>Listings are generated fresh each broker day. Category, brand model, condition, and risk are randomised within calibrated ranges so every sourcing decision feels distinct.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Margin preview</div>
+            <h3>Live profit projection</h3>
+            <p>Before you lock a purchase, the UI shows your projected gross profit based on the item's expected sell price relative to list price plus inbound shipping. The projection updates as you apply filters.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Trust system</div>
+            <h3>Supplier reliability tracking</h3>
+            <p>Each supplier has a persistent trust score that compounds across days. High-trust suppliers surface premium inventory and carry lower hidden risk multipliers — building long-term supplier relationships is a core meta-game lever.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Filtering</div>
+            <h3>Sort by landed cost · condition · risk · trust</h3>
+            <p>The SupplyNet UI surfaces the most actionable comparison axis per deal context. When the daily event boosts dispute risk, experienced brokers sort by condition first, not price.</p>
+          </div>
+        </div>
       </section>
+
+      <!-- ── NEGOTIATION ── -->
+      <section id="negotiation" class="section">
+        <h2>Negotiation system</h2>
+        <p class="section-lead">
+          The BrokerRoom is a deal desk where a queued client opens negotiations on the item you sourced. You have a finite number of rounds before the client exits — every message you send is parsed by an intent classifier, which maps your text to one of eight intent categories and updates the client's mood, leverage score, and response posture accordingly. Three distinct client personalities — Friendly, Analytical, and Aggressive — process the same intents in meaningfully different ways.
+        </p>
+
+        <div class="screenshot-pair">
+          <figure>
+            <img src="../resources/brokersim/brokersimscreenshotslot1.png" alt="BrokerRoom — initial client contact, Amira Costa (Friendly)" />
+            <figcaption>Initial contact — Amira Costa (Friendly) opens with a budget and condition target. The deal desk shows client mood and leverage before any counter has been made.</figcaption>
+          </figure>
+          <figure>
+            <img src="../resources/brokersim/brokersimscreenshot3.png" alt="Active negotiation — back-and-forth counter-offers with round counter visible" />
+            <figcaption>Mid-negotiation — counter-offers in progress. Client is holding at $15,350 asking price; the round counter is ticking down.</figcaption>
+          </figure>
+        </div>
+
+        <div class="proto-grid" style="margin-top: 2.5rem;">
+          <div class="proto-box">
+            <div class="proto-box-head">Broker → Classifier (intent types)</div>
+            <div class="proto-msg"><span class="proto-type">"discount"</span><span class="proto-desc">Push for a lower price — client mood response depends on personality and current leverage</span></div>
+            <div class="proto-msg"><span class="proto-type">"shipping"</span><span class="proto-desc">Negotiate who absorbs shipping cost — Analytical clients respond well, Aggressive clients may escalate</span></div>
+            <div class="proto-msg"><span class="proto-type">"trust"</span><span class="proto-desc">Appeal to relationship history — more effective with clients tied to high-trust past deals</span></div>
+            <div class="proto-msg"><span class="proto-type">"meet-middle"</span><span class="proto-desc">Propose a midpoint split — most reliable intent for closing without burning mood</span></div>
+            <div class="proto-msg"><span class="proto-type">"walk-away"</span><span class="proto-desc">Signal willingness to end the deal — raises leverage if credible, but Aggressive clients may call it</span></div>
+            <div class="proto-msg"><span class="proto-type">"threat"</span><span class="proto-desc">Apply pressure — effective against Friendly clients short-term, backfires with Aggressive</span></div>
+            <div class="proto-msg"><span class="proto-type">"accept"</span><span class="proto-desc">Close on the current offer — moves the item to Warehouse phase immediately</span></div>
+            <div class="proto-msg"><span class="proto-type">"counter"</span><span class="proto-desc">Submit a specific price or terms counter — triggers a classifier-weighted response</span></div>
+          </div>
+          <div class="proto-box">
+            <div class="proto-box-head">Client personalities</div>
+            <div class="proto-msg"><span class="proto-type">Friendly</span><span class="proto-desc">Responds well to trust appeals and meet-middle offers. Budget-sensitive but relationship-driven — won't walk away easily unless mood bottoms out.</span></div>
+            <div class="proto-msg"><span class="proto-type">Analytical</span><span class="proto-desc">Evaluates shipping cost and condition score most heavily. Discount-resistant on price alone; address the total cost of ownership to move them.</span></div>
+            <div class="proto-msg"><span class="proto-type">Aggressive</span><span class="proto-desc">Opens hard, responds to strength. Walk-away threats can work but will be called if your leverage is low. Easiest to close fast if you match their energy.</span></div>
+          </div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="tag">Round limit</div>
+            <h3>Finite negotiation window</h3>
+            <p>Each client enters with a fixed round budget. When rounds expire, they exit — you lose the deal even if terms were close. Pressure management and pacing matter as much as price strategy.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Mood tracking</div>
+            <h3>Per-client mood state</h3>
+            <p>Client mood shifts with each intent received. A Friendly client pushed with a threat drops mood sharply; an Aggressive client pushed the same way holds position. Mood gates what responses are available to the client each round.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Leverage</div>
+            <h3>Dynamic leverage score</h3>
+            <p>Your leverage score rises when you signal credible alternatives (walk-away, competing offer) and falls when you over-discount or plead. Higher leverage shifts the probability distribution on client concessions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Daily modifier</div>
+            <h3>Event-driven difficulty</h3>
+            <p>The BrokerSIM Daily newsletter publishes a demand boost that raises client budgets, or a dispute boost that tightens their tolerance for condition or shipping risk. Negotiation difficulty is never fixed.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── WAREHOUSE ── -->
+      <section id="warehouse" class="section">
+        <h2>Warehouse &amp; fulfillment</h2>
+        <p class="section-lead">
+          Once a deal closes, the game switches to a Three.js WebGL scene — a first-person warehouse where you physically carry the item from its inbound shelf to the dispatch station. WASD movement, a pickup interaction, a shipping method selection panel on the right, and a real-time dispatch checklist turn the fulfillment step into a tactile layer on top of the abstract deal mechanics. Warehouse complexity is where physical skill replaces negotiation skill.
+        </p>
+
+        <div class="screenshot-pair">
+          <figure>
+            <img src="../resources/brokersim/brokersimscreenshotslot4.png" alt="3D warehouse scene with GLTF models and shipping method panel" />
+            <figcaption>Warehouse phase — 3D scene with the item located on the grid, shipping method panel open (Economy Freight / Insured Priority / White Glove Courier), and dispatch checklist visible.</figcaption>
+          </figure>
+          <figure>
+            <img src="../resources/brokersim/brokersimscreenshot5.png" alt="Warehouse with BrokerSIM Daily newsletter overlay showing market conditions" />
+            <figcaption>Opening-day warehouse with the BrokerSIM Daily overlay — market conditions for the session (demand boost active, dispute risk adjusted).</figcaption>
+          </figure>
+        </div>
+
+        <div class="features-grid" style="margin-top: 2.5rem;">
+          <div class="feature-card">
+            <div class="tag">Engine</div>
+            <h3>Three.js WebGL renderer</h3>
+            <p>The warehouse is a Three.js scene embedded inside the React app. Scene setup, lighting, camera rig, and the render loop are fully isolated from React state — dispatch events bubble back up via a callback prop.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Movement</div>
+            <h3>WASD + directional controls</h3>
+            <p>Standard first-person WASD controls with on-screen directional buttons for touchscreen fallback. The player character navigates a grid-based warehouse floor to reach the inbound package location.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">GLTF models</div>
+            <h3>3D warehouse assets</h3>
+            <p>Shelving units, package props, and the dispatch station are loaded as GLTF models. The item carried represents the specific category (watch, jewelry, etc.) from the deal terms passed in from BrokerRoom.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Shipping method</div>
+            <h3>Economy · Insured Priority · White Glove</h3>
+            <p>Three shipping tiers selectable before dispatch. Economy is cheapest but raises delay risk. Insured Priority covers damage disputes. White Glove Courier minimises all risk at a margin cost — pairs with high-trust client deals.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Dispatch checklist</div>
+            <h3>Step-by-step fulfillment gating</h3>
+            <p>The checklist — package picked, on dispatch pad, handling time — gates the dispatch button. This prevents dispatch before the player has physically completed the fulfillment sequence, making the 3D phase consequential rather than cosmetic.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Item info</div>
+            <h3>Live deal context panel</h3>
+            <p>A sidebar displays the item name, category, agreed price, and approved shipping method from the BrokerRoom phase. The warehouse knows what it's shipping and why — the data flows unbroken from sourcing through fulfillment.</p>
+          </div>
+        </div>
+
+        <div class="highlight-block">
+          <strong>Why a 3D warehouse in a broker game?</strong> Most broker/trading simulations are entirely abstract — numbers and dialogue. Adding a physical fulfillment layer turns dispatch into a skill expression, not a button-press. It also creates a natural design space for future upgrades: faster movement, better packing equipment, and damage inspection tools that reduce risk — all tied back to the Broker Profile progression system.
+        </div>
+      </section>
+
+      <!-- ── EVENTS ── -->
+      <section id="events" class="section">
+        <h2>Day events &amp; market conditions</h2>
+        <p class="section-lead">
+          At the start of each broker day, the BrokerSIM Daily newsletter publishes three market condition modifiers that shape the entire session. These aren't cosmetic — they directly alter client budget tolerance, shipping risk curves, and deal difficulty across every negotiation that day. Reading the daily briefing and adjusting your sourcing and negotiation strategy accordingly is the primary skill loop between sessions.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Modifier</th>
+              <th>Effect</th>
+              <th>Strategic response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Delay Boost</td><td>Increases inbound shipping transit time probability — raises the chance a supplier delivery is late, hitting satisfaction scores</td><td>Prefer higher-trust suppliers; choose Insured Priority or White Glove shipping</td></tr>
+            <tr><td>Dispute Boost</td><td>Tightens client tolerance for condition defects and shipping delays — more deals risk triggering formal disputes that burn reputation</td><td>Source only high-condition items; Analytical clients are even more sensitive than usual</td></tr>
+            <tr><td>Demand Boost</td><td>Raises client budgets and softens walk-away thresholds — the market is hot, clients are willing to pay above their stated cap</td><td>Push harder on price; walk-away threats are weaker today because clients really want the item</td></tr>
+          </tbody>
+        </table>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="tag">Daily briefing</div>
+            <h3>BrokerSIM Daily newsletter</h3>
+            <p>Displayed as a styled in-game newspaper overlay at the start of the warehouse phase. "Opening Day Spotlight" surfaces the current modifier trio with flavour text framing the day's market conditions narratively.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Compounding effects</div>
+            <h3>Multiple modifiers stack</h3>
+            <p>A day with both +Dispute and +Demand active creates a tense high-value environment: clients will pay more but won't tolerate any defects. The most profitable sessions also carry the highest downside risk.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Event history</div>
+            <h3>Deal log carries context</h3>
+            <p>The deal log records which session conditions were active when each deal was closed. Future analysis of deal outcomes against event history is the foundation for the planned longitudinal reputation consequence system.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PROGRESSION ── -->
+      <section id="progression" class="section">
+        <h2>Broker progression</h2>
+        <p class="section-lead">
+          The Broker Profile screen tracks your career stats — cash on hand, reputation score (0–100), current day, and deal streak. The office upgrade shop lets you spend profit on permanent improvements that reduce friction across all three game phases: better inspection equipment, a CRM suite that buffs negotiation, and packing tools that speed up warehouse dispatch.
+        </p>
+
+        <figure class="screenshot-full">
+          <img src="../resources/brokersim/brokersimscreenshotslot6.png" alt="Deal Log screen showing deal outcomes, profit calculator, broker stats, and office upgrades" />
+          <figcaption>End-of-day view — deal log entries with profit/satisfaction/status, the profit calculator, current broker stats ($2,077 cash · Day 2 · Rep 69 · +1 streak), and the office upgrade shop.</figcaption>
+        </figure>
+
+        <table class="data-table" style="margin-top: 2.5rem;">
+          <thead>
+            <tr>
+              <th>Office Upgrade</th>
+              <th>Phase affected</th>
+              <th>Mechanical effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Inspection Lab Lamp</td><td>SupplyNet sourcing</td><td>Reveals hidden condition defects on supplier listings before purchase — reduces surprise dispute risk</td></tr>
+            <tr><td>CRM Negotiation Suite</td><td>BrokerRoom negotiation</td><td>Surfaces client mood history and previous deal terms — improves intent classifier accuracy and gives leverage advantage on repeat clients</td></tr>
+            <tr><td>Pro Packing Bench</td><td>Warehouse dispatch</td><td>Reduces handling time requirement in the dispatch checklist and lowers packaging damage risk on Economy Freight shipments</td></tr>
+          </tbody>
+        </table>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="tag">Cash</div>
+            <h3>Profit-driven progression</h3>
+            <p>Your broker cash accumulates from closed deal margins minus shipping costs. Disputes deduct a penalty. Cash is the primary resource for purchasing office upgrades — every deal has a direct upgrade economy consequence.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Reputation</div>
+            <h3>0–100 career score</h3>
+            <p>Reputation rises with clean dispatch outcomes and satisfied clients, falls with disputes and walk-aways. Higher reputation unlocks premium supplier access, better client types, and higher-value daily events.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Deal streak</div>
+            <h3>Consecutive clean deals</h3>
+            <p>A running streak of dispute-free, on-time dispatches. Streak bonuses are flagged in the deal log and feed into reputation multipliers — breaking a streak on a bad day has real career cost.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Profit calculator</div>
+            <h3>Buy · sell · shipping → ROI</h3>
+            <p>The deal log includes an inline calculator for any deal: enter buy price, sell price, and shipping cost to see gross profit, margin percentage, and ROI. Useful for post-mortem analysis of individual negotiations.</p>
+          </div>
+        </div>
+
+        <div class="highlight-block">
+          <strong>Persistence is the next major milestone:</strong> Currently all broker stats reset on page reload. The planned localStorage save will persist cash, reputation, supplier trust scores, client history, deal streak, and office upgrade state across sessions — transforming the current vertical slice into a true long-form broker career.
+        </div>
+      </section>
+
+      <!-- ── STACK ── -->
+      <section id="stack" class="section">
+        <h2>Full tech stack</h2>
+        <p class="section-lead">
+          A fully client-side TypeScript app — no backend, no auth, no deployment complexity. The React 19 + Vite setup gives instant HMR during development; Three.js handles the 3D warehouse scene as an isolated module; all game logic is plain TypeScript functions operating on typed state objects.
+        </p>
+        <div class="tech-tags">
+          <span class="tech-tag">React 19</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Vite</span>
+          <span class="tech-tag">Three.js</span>
+          <span class="tech-tag">WebGL</span>
+          <span class="tech-tag">GLTF / GLB Assets</span>
+          <span class="tech-tag">React Context</span>
+          <span class="tech-tag">CSS Modules</span>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="tag">UI</div>
+            <h3>React 19 + Vite</h3>
+            <p>React 19's concurrent features handle the negotiation chat feed and live deal state updates. Vite provides sub-second HMR and a zero-config TypeScript pipeline. All routes are client-side.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">3D</div>
+            <h3>Three.js + WebGL</h3>
+            <p>The warehouse scene is a Three.js PerspectiveCamera + WebGLRenderer embedded in a React ref. Scene lifecycle (init, animate, dispose) is fully managed by a custom hook so the 3D engine is invisible to the rest of the app.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Assets</div>
+            <h3>GLTF / GLB models</h3>
+            <p>Warehouse props (shelving, packages, dispatch station) are loaded via Three.js GLTFLoader. Models are versioned with the repo — no external CDN dependency. Category-appropriate item props match the sourced item type.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">State</div>
+            <h3>React Context game state</h3>
+            <p>A single top-level context holds the full game state object — selected supplier, deal terms, broker profile, deal log, active events. Components subscribe to only the slices they need. No external state library required at this scale.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Types</div>
+            <h3>Full TypeScript coverage</h3>
+            <p>Supplier listings, client profiles, deal terms, intent categories, and outcome records are all strongly typed. The type system makes the data flow between phases explicit — SupplyNet outputs exactly what BrokerRoom expects as input.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">No backend</div>
+            <h3>Pure client-side simulation</h3>
+            <p>Supplier generation, intent classification, event rolls, and outcome calculation are all deterministic TypeScript functions. This keeps the project zero-dependency on infrastructure — run it anywhere with <code style="background:var(--paper);padding:0 0.3rem;border:1px solid var(--rule);">npm run dev</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── STATUS ── -->
+      <section id="status" class="section">
+        <h2>Status &amp; roadmap</h2>
+        <p class="section-lead">
+          BrokerSIM is a playable vertical slice today: one full broker day — source, negotiate, dispatch, score — can be completed end-to-end. Core mechanics are coherent and testable. The primary gaps are persistence (no save between sessions), content depth (limited item categories and client pool), and longitudinal consequence (reputation doesn't yet carry meaningful cross-session effects).
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="tag">Done</div>
+            <h3>Full vertical slice</h3>
+            <p>SupplyNet → BrokerRoom → Warehouse → Deal Log connected end-to-end. One complete broker day is playable from cold start. All three client personalities and the intent classifier are implemented and functional.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Done</div>
+            <h3>3D warehouse scene</h3>
+            <p>Three.js renderer with GLTF assets, WASD movement, pickup and dispatch interaction, shipping method selection, and real-time dispatch checklist — all wired into the React game state loop.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Done</div>
+            <h3>Daily events system</h3>
+            <p>BrokerSIM Daily with demand, dispute, and delay modifiers. Event values propagate through negotiation difficulty and shipping risk for the full session.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Next</div>
+            <h3>Persistent broker career</h3>
+            <p>localStorage (or IndexedDB) save for cash, reputation, supplier trust, client history, deal streak, and office upgrades. Session persistence turns the demo into a career game.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Next</div>
+            <h3>Content expansion</h3>
+            <p>More item categories, more client personas, richer event types, and a balancing pass on margin curves and shipping risk probability distributions. More content depth extends replayability.</p>
+          </div>
+          <div class="feature-card">
+            <div class="tag">Next</div>
+            <h3>Longitudinal reputation</h3>
+            <p>Negotiation history and deal outcomes carrying real consequences across multiple sessions — repeat clients remember past deals, supplier trust degrades after bad outcomes, reputation gates unlock at defined thresholds.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CTA ── -->
+      <div class="cta-section">
+        <div>
+          <h2>Try BrokerSIM</h2>
+          <p>Clone the repo and run locally — it starts with a single <code style="background: rgba(255,255,255,0.1); padding: 0 0.4rem; border-radius: 2px;">npm run dev</code>. No backend, no accounts, no setup beyond Node.js. One full broker day playable immediately.</p>
+        </div>
+        <div>
+          <a href="https://github.com/Zoande/BrokerSIM" target="_blank" rel="noopener noreferrer" class="cta-button">GitHub Repo →</a>
+          <a href="/#projects" class="cta-button ghost">View Projects</a>
+        </div>
+      </div>
+
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-      AOS.init({
-        duration: 700,
-        easing: 'ease-in-out-cubic',
-        once: false,
-        mirror: true,
-        offset: 100
-      });
+      // TOC active-link highlight on scroll
+      const sections = document.querySelectorAll('section[id]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      sections.forEach(s => observer.observe(s));
     </script>
-    <script src="../data/projects.js"></script>
-    <script src="../scripts/project.js"></script>
   </body>
 </html>

@@ -2,7 +2,7 @@
   "name": "elitedevs",
   "private": true,
   "version": "1.0.0",
-  "description": "EliteDevs project hub — static site.",
+  "description": "EliteDevs project hub - static site.",
   "scripts": {
     "dev": "serve -l 3000 .",
     "start": "serve -l 3000 ."

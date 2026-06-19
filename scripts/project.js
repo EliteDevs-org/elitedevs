@@ -38,12 +38,6 @@
       href: "http://localhost:4311",
       note: "Run mode uses local Next server on port 4311."
     },
-    "dh-brokersim": {
-      type: "play",
-      label: "Play Project",
-      href: "../play/dh-brokersim/",
-      note: "Static build is bundled in this workspace."
-    },
     "dh-citybuilder": {
       type: "play",
       label: "Play Project",
