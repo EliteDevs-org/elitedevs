@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MegaCity Builder | EliteDevs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles-premium-light.css" />
+    <style>
+      :root {
+        --ink: #1a1a1a;
+        --muted: #666;
+        --paper: #fffdf9;
+        --rule: #d6d2c8;
+        --green: #2d6a4f;
+        --blue: #2e86c1;
+        --amber: #d99a2b;
+      }
+
+      body {
+        background: linear-gradient(-45deg, #f7faf7, #edf4ef, #e6eef5, #f6f1e8);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .nav-back {
+        max-width: 1100px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      .nav-back a {
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .project-header {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5rem 3rem 3rem;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      @media (max-width: 860px) {
+        .project-header {
+          grid-template-columns: 1fr;
+          padding: 4rem 1.5rem 2rem;
+        }
+      }
+
+      .eyebrow {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--green);
+        font-weight: 700;
+        margin: 0 0 1.2rem;
+      }
+
+      .project-header h1 {
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        line-height: 1.05;
+        margin: 0 0 1rem;
+        color: var(--ink);
+        letter-spacing: 0;
+      }
+
+      .project-header p {
+        color: #444;
+        font-size: 1.08rem;
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 2rem;
+      }
+
+      .city-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--green);
+        color: #fff;
+        padding: 0.9rem 1.6rem;
+        text-decoration: none;
+        font-weight: 800;
+        border: 1px solid var(--green);
+      }
+
+      .city-button.ghost {
+        background: transparent;
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+
+      .hero-shot {
+        margin: 0;
+        background: #111;
+        border: 1px solid var(--ink);
+        padding: 0.65rem;
+      }
+
+      .hero-shot img {
+        width: 100%;
+        display: block;
+      }
+
+      .metrics-strip {
+        background: var(--ink);
+        color: #f3efe8;
+        padding: 2.2rem 3rem;
+      }
+
+      .metrics-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
+      }
+
+      @media (max-width: 780px) {
+        .metrics-inner { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      .metric .num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        line-height: 1;
+      }
+
+      .metric .label {
+        color: #c8c4ba;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-top: 0.35rem;
+      }
+
+      .content-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section {
+        margin: 5rem 0;
+      }
+
+      .section h2 {
+        display: inline-block;
+        margin: 0 0 2rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--ink);
+        color: var(--ink);
+        font-size: 2rem;
+        letter-spacing: 0;
+      }
+
+      .section-lead {
+        max-width: 780px;
+        color: #333;
+        font-size: 1.05rem;
+        line-height: 1.75;
+        margin: 0 0 2.2rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        border-top: 1px solid var(--rule);
+        border-left: 1px solid var(--rule);
+      }
+
+      .feature-card {
+        background: transparent;
+        padding: 1.8rem 1.6rem;
+        border-right: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .feature-card h3 {
+        margin: 0 0 0.7rem;
+        color: var(--ink);
+        font-size: 1.05rem;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: #555;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .build-flow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--ink);
+      }
+
+      @media (max-width: 760px) {
+        .build-flow { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 520px) {
+        .build-flow { grid-template-columns: 1fr; }
+      }
+
+      .flow-step {
+        padding: 1.4rem;
+        border-right: 1px solid var(--ink);
+      }
+
+      .flow-step:last-child {
+        border-right: 0;
+      }
+
+      @media (max-width: 760px) {
+        .flow-step { border-bottom: 1px solid var(--ink); }
+      }
+
+      .flow-step .num {
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--green);
+        font-size: 2.3rem;
+        line-height: 1;
+      }
+
+      .flow-step h3 {
+        margin: 0.6rem 0 0.45rem;
+        color: var(--ink);
+      }
+
+      .flow-step p {
+        margin: 0;
+        color: #555;
+        line-height: 1.55;
+        font-size: 0.9rem;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tech-tags span {
+        border: 1px solid var(--rule);
+        background: var(--paper);
+        color: var(--ink);
+        padding: 0.35rem 0.75rem;
+        font-weight: 700;
+        font-size: 0.82rem;
+      }
+
+      .cta-section {
+        margin: 4rem 0;
+        padding: 3rem;
+        background: var(--ink);
+        color: #f3efe8;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      @media (max-width: 720px) {
+        .cta-section { grid-template-columns: 1fr; }
+      }
+
+      .cta-section h2 {
+        color: #f3efe8 !important;
+        border: none !important;
+        margin: 0 0 0.6rem;
+      }
+
+      .cta-section p {
+        color: #c8c4ba !important;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">ELITEDEVS</a>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item"><a href="/#projects" class="active">Projects</a></li>
+          <li class="nav-item"><a href="/about.html">About</a></li>
+          <li class="nav-item"><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="nav-back">
+      <a href="/#projects">Back to Projects</a>
+    </div>
+
+    <header class="project-header">
+      <div>
+        <p class="eyebrow">Playable City Sim - Pablo & Dima</p>
+        <h1>MegaCity Builder</h1>
+        <p>
+          A browser-based city-building simulation built with vanilla JavaScript and HTML5 Canvas. Generate terrain, place roads and civic buildings, balance budgets, and keep power, water, jobs, services, and happiness moving together.
+        </p>
+        <div class="hero-actions">
+          <a class="city-button" href="https://city-builder-henna.vercel.app/" target="_blank" rel="noopener noreferrer">Play Live</a>
+          <a class="city-button ghost" href="https://github.com/Zoande/CityBuilder" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+      </div>
+      <figure class="hero-shot">
+        <img src="../resources/citybuilder/citybuilder-preview.png" alt="MegaCity Builder live game preview" />
+      </figure>
+    </header>
+
+    <div class="metrics-strip">
+      <div class="metrics-inner">
+        <div class="metric"><div class="num">60x60</div><div class="label">Tile Map</div></div>
+        <div class="metric"><div class="num">Canvas</div><div class="label">Renderer</div></div>
+        <div class="metric"><div class="num">5</div><div class="label">Game Speeds</div></div>
+        <div class="metric"><div class="num">6 mo</div><div class="label">Autosave Cycle</div></div>
+        <div class="metric"><div class="num">0</div><div class="label">Build Step</div></div>
+      </div>
+    </div>
+
+    <main class="content-grid">
+      <section class="section">
+        <h2>At a glance</h2>
+        <p class="section-lead">
+          MegaCity Builder starts with a procedurally generated terrain map and gives the player a full mayor toolkit: roads, housing, commerce, industry, utilities, public services, parks, demolish mode, time controls, budget panels, and local saved cities.
+        </p>
+        <div class="build-flow">
+          <div class="flow-step">
+            <div class="num">01</div>
+            <h3>Generate terrain</h3>
+            <p>Simplex-style noise creates grass, sand, water, trees, and rocks across a 60 by 60 map.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">02</div>
+            <h3>Lay infrastructure</h3>
+            <p>Roads connect buildings while power plants, wind, solar, water towers, and pumps satisfy city demand.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">03</div>
+            <h3>Grow the city</h3>
+            <p>Residential, commercial, and industrial buildings add population, jobs, income, costs, and pollution.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">04</div>
+            <h3>Manage outcomes</h3>
+            <p>Taxes, happiness, safety, fire, health, education, disasters, and monthly budget ticks shape the city.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Simulation systems</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>Procedural map</h3>
+            <p>The map module generates terrain, trees, roads, buildings, pollution grids, and service coverage grids for fire, health, education, safety, and happiness.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Canvas renderer</h3>
+            <p>The renderer draws visible tiles only, then layers terrain, water animation, trees, roads, building sprites, placement previews, particles, FPS, coordinates, and a minimap.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Economy loop</h3>
+            <p>Population, tax income, commercial income, maintenance expenses, budgets, monthly history, happiness, and date progression all run through plain JavaScript systems.</p>
+          </div>
+          <div class="feature-card">
+            <h3>City services</h3>
+            <p>Police, fire stations, hospitals, schools, parks, utilities, and civic structures affect coverage, demand, happiness, risk, and building activity.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Player controls</h3>
+            <p>Pan with WASD or arrows, drag the camera, scroll to zoom, place with left click, cancel with right click or Escape, and use speed controls for pause through fast-forward.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Local persistence</h3>
+            <p>Game state serializes the map and economy to localStorage, with auto-save every six in-game months and a welcome-screen load option.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Stack</h2>
+        <p class="section-lead">
+          The project is deliberately lightweight: no framework, no bundler, no backend, just static files and browser APIs. The code is split by system so the canvas renderer, input, map, economy, simulation, audio, and UI can evolve independently.
+        </p>
+        <div class="tech-tags">
+          <span>HTML5 Canvas</span>
+          <span>Vanilla JavaScript</span>
+          <span>CSS</span>
+          <span>localStorage</span>
+          <span>Procedural Terrain</span>
+          <span>Camera Pan/Zoom</span>
+          <span>Simulation Ticks</span>
+          <span>Static Vercel Deploy</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Status</h2>
+        <p class="section-lead">
+          The shipped build is playable as a static browser game. The current implementation already has the core city loop, HUD, build menu, terrain rendering, simulation ticks, save/load, and time controls. The most natural next steps are deeper balancing, mobile UI tuning, more visual building states, and clearer in-game onboarding.
+        </p>
+      </section>
+
+      <div class="cta-section">
+        <div>
+          <h2>Build a city in the browser</h2>
+          <p>No install or account required. The live deployment runs as a static canvas game.</p>
+        </div>
+        <div>
+          <a class="city-button" href="https://city-builder-henna.vercel.app/" target="_blank" rel="noopener noreferrer">Play Live</a>
+          <a class="city-button ghost" href="https://github.com/Zoande/CityBuilder" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
