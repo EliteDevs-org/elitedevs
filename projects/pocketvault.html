@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PocketVault | EliteDevs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles-premium-light.css" />
+    <style>
+      :root {
+        --teal: #2C5F5D;
+        --teal-light: #3a7a77;
+        --orange: #D97634;
+        --ink: #1a1a1a;
+        --muted: #777;
+        --rule: #d6d2c8;
+        --paper: #fffdf9;
+        --bg-off: #f5f3ef;
+      }
+
+      body {
+        background: linear-gradient(-45deg, #f8f9fa, #eef2f5, #e0e7ee, #f3f0f5);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      code, .mono { font-family: 'Space Grotesk', monospace; }
+      .inline-code { background: var(--paper); padding: 0 0.35rem; border: 1px solid var(--rule); }
+
+      /* ── HEADER ── */
+      .project-header {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5rem 3rem 3rem;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      @media (max-width: 820px) {
+        .project-header { grid-template-columns: 1fr; padding: 4rem 1.5rem 2rem; }
+      }
+      .project-header h1 {
+        font-size: clamp(2.5rem, 7vw, 3.8rem);
+        font-weight: 800;
+        margin: 0 0 1rem;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+      .eyebrow {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--teal);
+        font-weight: 600;
+        margin: 0 0 1.2rem;
+      }
+
+      /* ── METRICS STRIP ── */
+      .metrics-strip { background: var(--ink); color: #f3efe8; padding: 2.2rem 3rem; }
+      .metrics-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2rem;
+      }
+      @media (max-width: 900px) { .metrics-inner { grid-template-columns: repeat(3, 1fr); } }
+      @media (max-width: 520px) { .metrics-inner { grid-template-columns: repeat(2, 1fr); } }
+      .metric-item .num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.6rem;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        color: #fff;
+      }
+      .metric-item .lbl {
+        font-size: 0.72rem;
+        color: #aaa;
+        margin-top: 0.3rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* ── CONTENT ── */
+      .content-grid { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+      .section { margin: 5rem 0; }
+      .section h2 {
+        font-size: 2rem;
+        margin: 0 0 2rem;
+        color: var(--ink);
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 0.6rem;
+        display: inline-block;
+        letter-spacing: -0.01em;
+      }
+      .section-lead {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        max-width: 780px;
+        color: #333;
+        margin: 0 0 2.5rem;
+      }
+
+      /* ── FEATURE GRID ── */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 0;
+        border-top: 1px solid var(--rule);
+        border-left: 1px solid var(--rule);
+      }
+      .feature-card {
+        background: transparent;
+        padding: 1.8rem 1.6rem;
+        border-right: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+      .feature-card h3 {
+        margin: 0 0 0.6rem;
+        color: var(--ink);
+        font-size: 1.05rem;
+        font-weight: 700;
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+      }
+      .feature-card h3::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        flex-shrink: 0;
+        background: var(--teal);
+      }
+      .feature-card p { color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0; }
+      .feature-card .tag {
+        display: inline-block;
+        background: var(--bg-off);
+        border: 1px solid var(--rule);
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 0.2rem 0.6rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+
+      /* ── ARCHITECTURE DIAGRAM ── */
+      .arch-mega {
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        padding: 2.4rem 2rem;
+        font-family: 'Space Grotesk', monospace;
+        font-size: 0.88rem;
+        line-height: 1.65;
+        color: #222;
+        margin: 2rem 0;
+        overflow-x: auto;
+      }
+      .arch-row { display: flex; align-items: stretch; gap: 1.5rem; flex-wrap: wrap; }
+      .arch-col { flex: 1; min-width: 200px; }
+      .arch-col-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+      .arch-box {
+        border: 1px solid var(--ink);
+        padding: 0.65rem 0.95rem;
+        margin: 0.35rem 0;
+        background: #fff;
+        position: relative;
+      }
+      .arch-box.highlight { border-color: var(--teal); background: #f0f8f7; }
+      .arch-box.dim { border-color: #bbb; background: #fafafa; }
+      .arch-box strong { color: var(--ink); font-size: 0.9rem; }
+      .arch-box .small { color: var(--muted); font-size: 0.76rem; display: block; margin-top: 0.1rem; }
+      .arch-arrow { color: var(--orange); padding-left: 1rem; font-size: 0.85rem; line-height: 2; }
+      .arch-divider { width: 1px; background: var(--rule); align-self: stretch; margin: 0 0.5rem; flex-shrink: 0; }
+
+      /* ── ENVELOPE / FORMAT TABLE ── */
+      .proto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+      @media (max-width: 720px) { .proto-grid { grid-template-columns: 1fr; } }
+      .proto-box { border: 1px solid var(--rule); background: var(--paper); }
+      .proto-box-head {
+        background: var(--ink);
+        color: #f3efe8;
+        padding: 0.55rem 1rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+      .proto-msg {
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid var(--rule);
+        display: flex;
+        align-items: baseline;
+        gap: 0.8rem;
+        font-size: 0.88rem;
+      }
+      .proto-msg:last-child { border-bottom: none; }
+      .proto-type {
+        font-family: monospace;
+        font-weight: 700;
+        color: var(--teal);
+        white-space: nowrap;
+        min-width: 96px;
+        flex-shrink: 0;
+      }
+      .proto-desc { color: #555; line-height: 1.5; }
+
+      /* ── RESOURCE GRID ── */
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .resource-card { border: 1px solid var(--rule); background: var(--paper); padding: 1.2rem 1rem; text-align: center; }
+      .resource-card .icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+      .resource-card .name { font-weight: 700; color: var(--ink); font-size: 0.9rem; margin-bottom: 0.25rem; }
+      .resource-card .desc { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+
+      /* ── TABLE ── */
+      .roles-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.95rem; }
+      .roles-table th, .roles-table td { text-align: left; padding: 0.9rem 1rem; border-bottom: 1px solid var(--rule); }
+      .roles-table th {
+        background: var(--ink);
+        color: #f3efe8;
+        font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .roles-table td:first-child { font-weight: 700; color: var(--ink); }
+      .roles-table td { color: #444; }
+      .roles-table tr:nth-child(even) td { background: var(--paper); }
+
+      /* ── SCREENSHOT SLOTS ── */
+      .screenshot-slot {
+        border: 1px dashed #bbb;
+        background: #fafafa;
+        aspect-ratio: 16/9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #bbb;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 1rem;
+      }
+      .screenshot-slot::before { content: '▢'; font-size: 2rem; opacity: 0.4; }
+      .screenshot-slot-label {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-top: 0.4rem;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+      .slots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin: 2rem 0; }
+      .slots-grid-wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.2rem; margin: 2rem 0; }
+      @media (max-width: 500px) { .slots-grid-wide { grid-template-columns: 1fr; } }
+      .slot-item { display: flex; flex-direction: column; }
+      .slot-item .screenshot-slot-label { text-align: left; }
+      .header-slot { aspect-ratio: 16/10; }
+      .slot-item img { width: 100%; border: 1px solid var(--rule); display: block; }
+      .header-shot { width: 100%; height: auto; border: 1px solid var(--ink); display: block; }
+      figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; font-family: 'Space Grotesk', sans-serif; }
+
+      /* ── TECH TAGS ── */
+      .tech-tag {
+        display: inline-block;
+        background: var(--bg-off);
+        border: 1px solid var(--rule);
+        font-size: 0.78rem;
+        font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 0.3rem 0.75rem;
+        margin: 0.2rem;
+        color: var(--ink);
+      }
+      .tech-tags { margin: 1.5rem 0; }
+
+      /* ── HIGHLIGHT BLOCK ── */
+      .highlight-block {
+        background: var(--paper);
+        border-left: 3px solid var(--teal);
+        padding: 1.2rem 1.5rem;
+        margin: 1.5rem 0;
+        font-size: 0.95rem;
+        color: #333;
+        line-height: 1.7;
+      }
+      .highlight-block strong { color: var(--ink); }
+      .highlight-block.warn { border-left-color: var(--orange); }
+
+      /* ── STAT ROW ── */
+      .stats-row { display: flex; gap: 3rem; margin: 0 0 3rem; flex-wrap: wrap; }
+      .stat .num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--ink); letter-spacing: 0.02em; line-height: 1; }
+      .stat .lbl {
+        font-size: 0.74rem;
+        color: var(--muted);
+        margin-top: 0.3rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* ── TIMELINE ── */
+      .timeline { border-left: 1px solid var(--rule); margin: 2rem 0 0 0.6rem; padding-left: 2.4rem; }
+      .timeline .tl-item { position: relative; margin-bottom: 2rem; }
+      .timeline .tl-item:last-child { margin-bottom: 0; }
+      .timeline .dot { position: absolute; left: -2.9rem; top: 0.15rem; width: 10px; height: 10px; background: var(--teal); border-radius: 50%; }
+      .timeline .dot.orange { background: var(--orange); }
+      .timeline .when { font-size: 0.72rem; color: var(--muted); font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; }
+      .timeline .head { font-weight: 700; color: var(--ink); font-size: 1rem; }
+      .timeline .body { color: #555; font-size: 0.9rem; margin-top: 0.25rem; line-height: 1.6; }
+
+      /* ── CTA ── */
+      .cta-section {
+        text-align: left;
+        margin: 4rem 0;
+        padding: 3rem;
+        background: var(--ink);
+        color: #f3efe8;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .cta-section h2 { color: #f3efe8 !important; border: none !important; margin: 0 0 0.6rem; }
+      .cta-section p { color: #c8c4ba !important; margin: 0; }
+      @media (max-width: 720px) { .cta-section { grid-template-columns: 1fr; } }
+      .cta-button {
+        display: inline-block;
+        background: var(--orange);
+        color: #fff;
+        padding: 0.9rem 1.8rem;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin: 0.25rem 0 0.25rem 0.5rem;
+      }
+      .cta-button:hover { background: #b85f24; }
+      .cta-button.ghost { background: transparent; border: 1px solid #f3efe8; color: #f3efe8; }
+
+      /* ── NAV ── */
+      .nav-back { max-width: 1100px; margin: 2rem auto; padding: 0 2rem; }
+      .nav-back a { color: var(--ink); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
+      .nav-back a:hover { text-decoration: underline; }
+
+      /* ── TABLE OF CONTENTS ── */
+      .toc-sidebar {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: calc(50% + 580px);
+        width: 168px;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      @media (max-width: 1500px) { .toc-sidebar { display: none; } }
+      .toc-title {
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 0 0 0.6rem 0.75rem;
+        border-left: 2px solid var(--rule);
+      }
+      .toc-link {
+        display: block;
+        padding: 0.3rem 0 0.3rem 0.75rem;
+        font-size: 0.75rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 500;
+        color: #999;
+        text-decoration: none;
+        border-left: 2px solid var(--rule);
+        transition: color 0.15s, border-color 0.15s;
+        line-height: 1.3;
+      }
+      .toc-link:hover { color: var(--ink); }
+      .toc-link.active { color: var(--teal); font-weight: 700; border-left-color: var(--teal); }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">ELITEDEVS</a>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item"><a href="/#projects" class="active">Projects</a></li>
+          <li class="nav-item"><a href="/about">About</a></li>
+          <li class="nav-item"><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="nav-back">
+      <a href="/#projects">← Back to Projects</a>
+    </div>
+
+    <!-- ── HEADER ── -->
+    <header class="project-header">
+      <div>
+        <p class="eyebrow">Private Build — Pablo</p>
+        <h1>PocketVault</h1>
+        <p style="font-size: 1.1rem; color: #555; margin: 1.2rem 0 0; max-width: 36rem; line-height: 1.55;">
+          A portable, offline encryption app for a USB drive. Your files are sealed with AES-256-GCM behind an Argon2id-derived key and cryptographically bound to the physical drive — so a copy of the files on any other disk is just noise. No accounts, no cloud, no telemetry. Built in Python with a native desktop UI and packaged as a single Windows executable that lives on the stick itself.
+        </p>
+        <a href="/contact" class="cta-button" style="display: inline-block; margin: 2rem 0 0; background: #2C5F5D;">Request Access →</a>
+      </div>
+      <img src="../resources/pocketvault/1header.png" alt="PocketVault unlock screen" class="header-shot" />
+    </header>
+
+    <!-- ── METRICS STRIP ── -->
+    <div class="metrics-strip">
+      <div class="metrics-inner">
+        <div class="metric-item"><div class="num">AES-256</div><div class="lbl">GCM Cipher</div></div>
+        <div class="metric-item"><div class="num">Argon2id</div><div class="lbl">Key Derivation</div></div>
+        <div class="metric-item"><div class="num">3K+</div><div class="lbl">Lines of Python</div></div>
+        <div class="metric-item"><div class="num">0</div><div class="lbl">Network Calls</div></div>
+        <div class="metric-item"><div class="num">100%</div><div class="lbl">Offline</div></div>
+        <div class="metric-item"><div class="num">USB</div><div class="lbl">Hardware-Bound</div></div>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc-sidebar" aria-label="Page sections">
+      <div class="toc-title">On this page</div>
+      <a class="toc-link" href="#at-a-glance">At a glance</a>
+      <a class="toc-link" href="#architecture">Architecture</a>
+      <a class="toc-link" href="#cryptography">Cryptography</a>
+      <a class="toc-link" href="#hardware">Hardware binding</a>
+      <a class="toc-link" href="#protections">Protections</a>
+      <a class="toc-link" href="#experience">The app</a>
+      <a class="toc-link" href="#stack">Tech stack</a>
+      <a class="toc-link" href="#build">How it's built</a>
+      <a class="toc-link" href="#status">Status</a>
+      <a class="toc-link" href="#access">Access</a>
+    </nav>
+
+    <main class="content-grid">
+
+      <!-- ── AT A GLANCE ── -->
+      <section id="at-a-glance" class="section">
+        <h2>At a glance</h2>
+        <div class="stats-row">
+          <div class="stat"><div class="num">256-bit</div><div class="lbl">Encryption keys</div></div>
+          <div class="stat"><div class="num">64–256MB</div><div class="lbl">Argon2 memory cost</div></div>
+          <div class="stat"><div class="num">0 bytes</div><div class="lbl">Plaintext at rest</div></div>
+          <div class="stat"><div class="num">1 file</div><div class="lbl">Portable executable</div></div>
+        </div>
+        <p class="section-lead">
+          PocketVault is a self-contained encrypted store you carry on a USB drive. Drop files in, and they're written back out as authenticated AES-256-GCM blobs with no recoverable filenames, structure, or metadata in the clear. The encryption key never touches the disk — it's derived from your password every time you unlock and discarded the moment you lock. Everything runs locally; the app makes <strong>zero</strong> network requests and stores nothing about you anywhere but the drive in your pocket.
+        </p>
+        <div class="slots-grid-wide">
+          <figure class="slot-item">
+            <img src="../resources/pocketvault/2mainvaultfilelist.png" alt="PocketVault main screen — encrypted file list" />
+            <figcaption>Main vault — your encrypted files, decrypted in memory only when opened.</figcaption>
+          </figure>
+          <figure class="slot-item">
+            <img src="../resources/pocketvault/3exportingvaultfile.png" alt="Exporting a decrypted file from PocketVault" />
+            <figcaption>Reading and exporting a file — nothing is written in the clear unless you choose to.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ── ARCHITECTURE ── -->
+      <section id="architecture" class="section">
+        <h2>Architecture</h2>
+        <p class="section-lead">
+          The app is split into three clean layers: a native desktop <strong>UI</strong>, a self-contained <strong>crypto engine</strong> with no UI knowledge, and a <strong>storage layer</strong> that only ever sees opaque ciphertext. Keys flow downward and are held only in memory; nothing above the crypto engine ever sees a plaintext key, and nothing below it ever sees plaintext data.
+        </p>
+
+        <div class="arch-mega">
+          <div class="arch-row">
+            <div class="arch-col">
+              <div class="arch-col-label">Interface</div>
+              <div class="arch-box highlight">
+                <strong>Desktop UI</strong>
+                <span class="small">Setup wizard · unlock · file browser · settings</span>
+              </div>
+              <div class="arch-arrow">↓ password</div>
+            </div>
+            <div class="arch-divider"></div>
+            <div class="arch-col">
+              <div class="arch-col-label">Crypto engine</div>
+              <div class="arch-box highlight">
+                <strong>Key derivation</strong>
+                <span class="small">Argon2id · per-vault salt · tunable cost</span>
+              </div>
+              <div class="arch-box">
+                <strong>AES-256-GCM</strong>
+                <span class="small">Authenticated encrypt / decrypt</span>
+              </div>
+              <div class="arch-box">
+                <strong>Hardware binding</strong>
+                <span class="small">Mixes a drive secret into every key</span>
+              </div>
+              <div class="arch-arrow">↓ ciphertext only</div>
+            </div>
+            <div class="arch-divider"></div>
+            <div class="arch-col">
+              <div class="arch-col-label">Storage (on the USB)</div>
+              <div class="arch-box dim">
+                <strong>Encrypted blobs</strong>
+                <span class="small">Hashed filenames · no plaintext metadata</span>
+              </div>
+              <div class="arch-box dim">
+                <strong>Sealed state</strong>
+                <span class="small">Lockout + integrity, separately encrypted</span>
+              </div>
+              <div class="arch-box dim">
+                <strong>Atomic writes</strong>
+                <span class="small">temp file → fsync → os.replace</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-block">
+          <strong>The key never hits the disk.</strong> Your password is run through Argon2id to derive a 256-bit key in memory, that key decrypts the vault, and it's wiped on lock or idle-timeout. There is no key file, no keychain entry, and no recovery path that doesn't go through either your password or the one-time master recovery key you save at setup.
+        </div>
+
+        <h3 style="font-size:1.15rem;color:var(--ink);margin:2.5rem 0 1rem;">On-disk file format</h3>
+        <p style="color:#555;line-height:1.7;max-width:780px;margin:0 0 1.5rem;">
+          Every stored file is wrapped in a single self-describing envelope. The salt makes each file's key unique even under the same password; the GCM tag means any tampering with a single byte fails the decrypt instead of returning garbage.
+        </p>
+        <div class="proto-grid">
+          <div class="proto-box">
+            <div class="proto-box-head">File envelope</div>
+            <div class="proto-msg"><span class="proto-type">salt</span><span class="proto-desc">16 random bytes — feeds the Argon2id key for this file</span></div>
+            <div class="proto-msg"><span class="proto-type">nonce</span><span class="proto-desc">12 random bytes — unique per write, never reused</span></div>
+            <div class="proto-msg"><span class="proto-type">ciphertext</span><span class="proto-desc">AES-256-GCM encrypted file contents</span></div>
+            <div class="proto-msg"><span class="proto-type">tag</span><span class="proto-desc">128-bit authentication tag — detects any tampering</span></div>
+          </div>
+          <div class="proto-box">
+            <div class="proto-box-head">What an outsider sees</div>
+            <div class="proto-msg"><span class="proto-type">names</span><span class="proto-desc">Random-looking hex — no original filenames or extensions</span></div>
+            <div class="proto-msg"><span class="proto-type">content</span><span class="proto-desc">Indistinguishable from random — no headers, no magic bytes</span></div>
+            <div class="proto-msg"><span class="proto-type">keys</span><span class="proto-desc">Never written to disk in any form</span></div>
+            <div class="proto-msg"><span class="proto-type">tampering</span><span class="proto-desc">Any single-byte change fails authentication on unlock</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CRYPTOGRAPHY ── -->
+      <section id="cryptography" class="section">
+        <h2>Cryptography</h2>
+        <p class="section-lead">
+          The crypto is deliberately boring — standard, well-reviewed primitives wired together carefully, with no home-rolled algorithms. The interesting part is the cost tuning: you choose how hard your password is to attack, trading unlock speed for brute-force resistance.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="tag">Cipher</span>
+            <h3>AES-256-GCM</h3>
+            <p>Authenticated encryption everywhere. Confidentiality and integrity in one pass — a modified ciphertext fails to decrypt rather than yielding corrupted plaintext.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Key derivation</span>
+            <h3>Argon2id</h3>
+            <p>Memory-hard password hashing, the current best-practice choice. Each unlock re-derives the key; nothing reusable is stored.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Tunable cost</span>
+            <h3>Three KDF profiles</h3>
+            <p>Balanced, Strong, and Paranoid map to 64 MB / 128 MB / 256 MB of Argon2 memory. You pick your point on the speed-versus-resistance curve at setup.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Randomness</span>
+            <h3>CSPRNG everywhere</h3>
+            <p>Every salt, nonce, and internal key comes from the OS cryptographic RNG. No predictable counters, no reused nonces.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Recovery</span>
+            <h3>Master recovery key</h3>
+            <p>A 128-bit key shown once at setup escrows the drive secret, so a damaged or reformatted stick is still recoverable — by you, with the key, and no one else.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Constant work</span>
+            <h3>Uniform unlock timing</h3>
+            <p>Unlock does the same cryptographic work and enforces a minimum response time whether the password is right or wrong, so timing tells an attacker nothing.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── HARDWARE BINDING ── -->
+      <section id="hardware" class="section">
+        <h2>Hardware binding</h2>
+        <p class="section-lead">
+          This is the feature that makes PocketVault more than "encrypted files in a folder." A secret is mixed into every key and stored sealed against the drive itself — so copying the vault's files onto a different stick produces something that <em>cannot</em> be decrypted, even with the correct password. Crucially, the binding follows the <strong>drive</strong>, not the computer: the same USB unlocks on any machine you plug it into.
+        </p>
+
+        <table class="roles-table">
+          <thead>
+            <tr><th>Mode</th><th>Bound to</th><th>What it stops</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Standard</td><td>USB volume identity</td><td>Casual file copying to another drive. Works on any PC; reformatting releases it (recover with the master key).</td></tr>
+            <tr><td>Strict (anti-clone)</td><td>USB controller hardware serial</td><td>Even a full sector-by-sector clone onto another stick — the clone reports a different hardware serial and won't open.</td></tr>
+            <tr><td>Off</td><td>Nothing</td><td>Portable to any disk. For users who only want password protection.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-block warn">
+          <strong>Strict mode is opt-in and self-checking.</strong> It can only be enabled when the drive actually exposes a usable unique serial, so it can never put you in a state where your own drive locks you out. Not every flash drive reports one — the app detects this and refuses to enable strict mode rather than risk it.
+        </div>
+
+        <div class="slots-grid">
+          <figure class="slot-item">
+            <img src="../resources/pocketvault/4hardwarebinding.png" alt="PocketVault hardware-binding settings" />
+            <figcaption>Hardware-binding controls — standard and strict (anti-clone) modes.</figcaption>
+          </figure>
+          <figure class="slot-item">
+            <img src="../resources/pocketvault/5recoverykeyrotating.png" alt="PocketVault master recovery key" />
+            <figcaption>The master recovery key — your only way back in if the drive changes.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ── PROTECTIONS ── -->
+      <section id="protections" class="section">
+        <h2>Protections</h2>
+        <p class="section-lead">
+          Encryption is necessary but not sufficient. Around the cipher sits a layer of practical defenses against the ways a vault actually gets compromised — guessing, tampering, shoulder-surfing, and a drive left unlocked on a desk.
+        </p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="tag">Anti-guessing</span>
+            <h3>Brute-force lockout</h3>
+            <p>Wrong guesses trigger escalating timed lockouts. Combined with the memory-hard KDF, online guessing is impractical.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Tamper detection</span>
+            <h3>Integrity baseline</h3>
+            <p>The app fingerprints itself and re-checks against a baseline sealed inside the encrypted vault — so a swapped or modified executable is flagged after you unlock, not silently trusted.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Anti-forensics</span>
+            <h3>Secure deletion</h3>
+            <p>Deleted files are overwritten before removal (best-effort on flash) so the bytes don't simply linger as recoverable free space.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Walk-away safety</span>
+            <h3>Auto-lock</h3>
+            <p>Configurable idle timeout, instant lock on a key press, and an option to lock the moment the window is minimized.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Clipboard hygiene</span>
+            <h3>Auto-clear</h3>
+            <p>Anything you copy out of the vault — including your recovery key — is wiped from the clipboard on a timer.</p>
+          </div>
+          <div class="feature-card">
+            <span class="tag">Crash safety</span>
+            <h3>Atomic writes</h3>
+            <p>Every write goes to a temp file, is flushed to disk, then atomically swapped in — a yanked drive mid-write can't corrupt the vault.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── THE APP ── -->
+      <section id="experience" class="section">
+        <h2>The app</h2>
+        <p class="section-lead">
+          For all the machinery underneath, the surface is a calm, dark native desktop app. A first-run wizard walks you through your password, your security trade-offs, and saving your recovery key; after that it's just unlock, browse, and lock. Files can be viewed in-app (text or hex) without ever writing a decrypted copy to disk.
+        </p>
+        <div class="slots-grid">
+          <figure class="slot-item">
+            <img src="../resources/pocketvault/6setupwizard.png" alt="PocketVault first-run setup wizard" />
+            <figcaption>The first-run wizard walks you through setup and your security choices.</figcaption>
+          </figure>
+          <figure class="slot-item">
+            <img src="../resources/pocketvault/7dashboard.png" alt="PocketVault settings and dashboard" />
+            <figcaption>Settings &amp; status — binding mode, auto-lock, and at-a-glance health.</figcaption>
+          </figure>
+          <figure class="slot-item">
+            <img src="../resources/pocketvault/8integritycheck.png" alt="PocketVault integrity / tamper-check screen" />
+            <figcaption>Tamper check — the app flags a modified binary before you ever type a password.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ── TECH STACK ── -->
+      <section id="stack" class="section">
+        <h2>Tech stack</h2>
+        <p class="section-lead">
+          Python for the logic, vetted libraries for the cryptography, a native widget toolkit for the UI, and PyInstaller to fold it all into one portable executable that runs straight off the stick with nothing to install.
+        </p>
+        <div class="tech-tags">
+          <span class="tech-tag">Python 3</span>
+          <span class="tech-tag">argon2-cffi</span>
+          <span class="tech-tag">cryptography (AESGCM)</span>
+          <span class="tech-tag">CustomTkinter</span>
+          <span class="tech-tag">Tkinter</span>
+          <span class="tech-tag">PyInstaller</span>
+          <span class="tech-tag">ctypes / Win32</span>
+          <span class="tech-tag">PowerShell interop</span>
+        </div>
+        <div class="resource-grid">
+          <div class="resource-card"><div class="icon">🔐</div><div class="name">cryptography</div><div class="desc">AES-256-GCM authenticated encryption</div></div>
+          <div class="resource-card"><div class="icon">🧮</div><div class="name">argon2-cffi</div><div class="desc">Memory-hard Argon2id key derivation</div></div>
+          <div class="resource-card"><div class="icon">🪟</div><div class="name">CustomTkinter</div><div class="desc">Native, themed desktop UI</div></div>
+          <div class="resource-card"><div class="icon">📦</div><div class="name">PyInstaller</div><div class="desc">One-file portable Windows build</div></div>
+          <div class="resource-card"><div class="icon">⚙️</div><div class="name">ctypes / Win32</div><div class="desc">Reads drive identity for binding</div></div>
+        </div>
+      </section>
+
+      <!-- ── HOW IT'S BUILT ── -->
+      <section id="build" class="section">
+        <h2>How it's built</h2>
+        <p class="section-lead">
+          The codebase is small on purpose — three modules, one job each. A security tool you can read end-to-end is one you can actually trust.
+        </p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="dot"></div>
+            <div class="when">Crypto engine</div>
+            <div class="head">Primitives, isolated and testable</div>
+            <div class="body">All cryptography lives in one module with no UI or storage knowledge: key derivation, the AES-GCM envelope, hardware-fingerprint mixing, and secure-delete helpers. It's pure functions you can exercise headlessly.</div>
+          </div>
+          <div class="tl-item">
+            <div class="dot"></div>
+            <div class="when">Storage manager</div>
+            <div class="head">State, files, and policy</div>
+            <div class="body">Owns the on-disk layout, file versioning, brute-force lockout schedule, integrity baseline, settings, and hardware-binding lifecycle — all behind a lock so the UI thread never races the disk.</div>
+          </div>
+          <div class="tl-item">
+            <div class="dot orange"></div>
+            <div class="when">Interface</div>
+            <div class="head">A native app that hides the machinery</div>
+            <div class="body">The UI never touches a raw key or ciphertext — it only asks the manager to unlock, list, read, and write. Long operations run off the UI thread so the window never freezes mid-encrypt.</div>
+          </div>
+        </div>
+        <div class="highlight-block">
+          <strong>Tested where it counts.</strong> The crypto and storage layers are covered by headless tests that exercise the real round-trip — set up a vault, lock it, re-open it from a fresh process, change a password and confirm old keys stop working, and verify a relocated vault refuses to open. The security-critical paths are validated without ever opening a window.
+        </div>
+      </section>
+
+      <!-- ── STATUS ── -->
+      <section id="status" class="section">
+        <h2>Status</h2>
+        <p style="font-size: 1.05rem; line-height: 1.75; max-width: 720px; margin: 0; color: #333;">
+          Working and in active use as a private build. The full loop — set up, unlock, add and view files, bind to hardware, recover, and lock — runs end-to-end, packaged as a single portable executable. It is intentionally <strong>not</strong> public: a vault's security profile is something we discuss directly rather than publish. Specific internals are kept deliberately undocumented here.
+        </p>
+      </section>
+
+      <!-- ── ACCESS / CTA ── -->
+      <section id="access" class="cta-section">
+        <div>
+          <h2>Want access to PocketVault?</h2>
+          <p>PocketVault is a private build with no public download. If you have a use case for a portable, hardware-bound encrypted store — or just want to know more about how it works — reach out and we'll take it from there.</p>
+        </div>
+        <div style="text-align: right;">
+          <a href="/contact" class="cta-button">Request Access</a>
+          <a href="/#projects" class="cta-button ghost">Other Projects</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>EliteDevs</h4>
+            <p>Two developers building high-performance software.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <a href="/">Home</a>
+            <a href="/#projects">Projects</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 EliteDevs. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        const sections = document.querySelectorAll('section[id]');
+        const links = document.querySelectorAll('.toc-link');
+        if (!sections.length || !links.length) return;
+        const map = {};
+        links.forEach(function (l) {
+          var id = l.getAttribute('href').slice(1);
+          map[id] = l;
+        });
+        var active = null;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              if (active) active.classList.remove('active');
+              active = map[e.target.id];
+              if (active) active.classList.add('active');
+            }
+          });
+        }, { rootMargin: '-20% 0px -72% 0px', threshold: 0 });
+        sections.forEach(function (s) { observer.observe(s); });
+      })();
+    </script>
+  </body>
+</html>

@@ -334,5 +334,28 @@ window.PROJECTS = [
       "Balancing pass on economy, research, and market trading.",
       "Public hosted demo via the orchestrator gateway."
     ]
+  },
+  {
+    id: "pablo-pocketvault",
+    title: "PocketVault",
+    owner: "Pablo",
+    accessUrl: "/contact",
+    accessLabel: "Request Access",
+    tech: ["Python", "AES-256-GCM", "Argon2id", "USB Hardware-Bound"],
+    stage: "Private build",
+    summary:
+      "A portable, offline encryption app for a USB drive. Files are sealed with AES-256-GCM behind an Argon2id key and cryptographically bound to the physical drive - a copy on any other disk is just noise.",
+    details: [
+      "AES-256-GCM authenticated encryption with per-file salts and nonces.",
+      "Argon2id key derivation with selectable cost profiles; the key never touches disk.",
+      "Hardware-bound to the USB drive itself, with an opt-in anti-clone mode and a one-time master recovery key."
+    ],
+    status:
+      "Working private build packaged as a single portable Windows executable. Not public - access on request.",
+    deliverableSteps: [
+      "Discuss the security profile and threat model directly.",
+      "Tailor hardware binding and KDF cost to the use case.",
+      "Provide a portable build for the target drive."
+    ]
   }
 ];
