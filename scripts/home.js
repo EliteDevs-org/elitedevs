@@ -10,7 +10,7 @@
   const featuredIds = [
     "zoande-brokersim",
     "zoande-stellarfronts",
-    "dh-swapspot",
+    "pablo-pocketvault",
     "dima-tab-sorter-pro",
     "pablo-focus-blocker",
     "dima-human-doc-typer"
@@ -29,10 +29,20 @@
         "pablo-focus-blocker": "/images/ext-focus.png",
         "dima-human-doc-typer": "/images/ext-autotyper.png"
       };
+      const pocketVaultLogo =
+        `<div style="width:40px;height:40px;border-radius:10px;margin-bottom:0.75rem;background:#14342f;display:flex;align-items:center;justify-content:center;">` +
+        `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">` +
+        `<rect x="5" y="10.5" width="14" height="9.5" rx="2" stroke="#ffffff" stroke-width="2"/>` +
+        `<path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" stroke="#ffffff" stroke-width="2"/>` +
+        `<circle cx="12" cy="15" r="1.4" fill="#ffffff"/></svg></div>`;
       const extIcon = extIconMap[project.id]
         ? `<img src="${extIconMap[project.id]}" alt="${project.title} icon" style="width:40px;height:40px;border-radius:10px;margin-bottom:0.75rem;display:block;" />`
+        : project.id === "pablo-pocketvault"
+        ? pocketVaultLogo
         : "";
-      const primaryBtn = project.playUrl
+      const primaryBtn = project.accessUrl
+        ? `<a class="button ghost" href="${project.accessUrl}">${project.accessLabel || "Request Access"}</a>`
+        : project.playUrl
         ? `<a class="button ghost" href="${project.playUrl}" target="_blank" rel="noopener noreferrer">Play Now</a>`
         : `<a class="button ghost" href="${externalLink}" target="_blank" rel="noopener noreferrer">${linkLabel}</a>`;
       return `
@@ -50,7 +60,7 @@
           <div class="chip-row">${tech}</div>
           <div class="card-actions">
             ${primaryBtn}
-            <a class="button" href="projects/${project.id}">Open Page</a>
+            <a class="button" href="projects/${project.id.replace(/^(dh|dima|pablo|zoande)-/, '')}">Open Page</a>
           </div>
         </article>
       `;
