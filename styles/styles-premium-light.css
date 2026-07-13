@@ -230,6 +230,32 @@ body {
   gap: 3.5rem; padding: 0 2rem;
 }
 
+.project-more-wrap {
+  margin-top: 3rem;
+}
+
+.project-more-grid {
+  margin-top: 0;
+}
+
+.project-more-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.footer-github-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-github-link img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
 .project-card {
   display: flex; flex-direction: column; 
   background: white !important; 

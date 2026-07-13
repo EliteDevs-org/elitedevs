@@ -41,7 +41,7 @@
     "dh-metrozone": {
       type: "play",
       label: "Play MetroZone",
-      href: "https://metrozoone.vercel.app",
+      href: "https://metrozone.vercel.app",
       note: "Live on Vercel — opens in a new tab."
     },
     "dh-citybuilder": {

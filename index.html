@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-    <link rel="stylesheet" href="styles-premium-light.css" />
+    <link rel="stylesheet" href="styles/styles-premium-light.css" />
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   </head>
@@ -60,12 +60,12 @@
       <!-- Stats -->
       <section class="stats-container" data-aos="fade-up">
         <div class="glass-card stat-box">
-          <span>276+</span>
-          <p>Satisfied Clients</p>
+          <span>947+</span>
+          <p>Satisfied Users</p>
         </div>
         <div class="glass-card stat-box">
-          <span>65+</span>
-          <p>Unique Countries</p>
+          <span>75+</span>
+          <p>Countries</p>
         </div>
         <div class="glass-card stat-box">
           <span>100%</span>
@@ -133,6 +133,12 @@
         </div>
         <!-- Projects Grid Container -->
         <div id="project-grid" class="project-grid" aria-live="polite"></div>
+        <div id="project-more-wrap" class="project-more-wrap" hidden>
+          <div id="project-more-grid" class="project-grid project-more-grid" aria-live="polite"></div>
+        </div>
+        <div class="project-more-actions">
+          <button id="project-show-more" class="button ghost" type="button" hidden>Show More Featured Projects</button>
+        </div>
       </section>
 
       <!-- CTA Section -->
@@ -163,8 +169,10 @@
           </div>
           <div class="footer-column">
             <h4>Connect</h4>
-            <a href="https://github.com" target="_blank">GitHub</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://github.com/EliteDevs-org/elitedevs" target="_blank" rel="noopener noreferrer" class="footer-github-link">
+              <img src="/images/logo-github.png" alt="" aria-hidden="true" />
+              GitHub
+            </a>
           </div>
         </div>
         <div class="footer-bottom">
