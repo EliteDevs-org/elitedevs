@@ -15,9 +15,10 @@
     "zoande-brokersim",
     "zoande-stellarfronts",
     "dima-tab-sorter-pro",
-    "pablo-focus-blocker",
+    "dima-focus-blocker",
     "dima-human-doc-typer",
-    "pablo-pocketvault"
+    "pablo-pocketvault",
+    "zoande-paperpoly"
   ];
   
   const featuredOrder = new Map(featuredIds.map((id, index) => [id, index]));
@@ -34,7 +35,7 @@
     const linkLabel = project.extUrl ? "Get Extension" : "Repo";
     const extIconMap = {
       "dima-tab-sorter-pro": "/images/ext-tab-sorter.png",
-      "pablo-focus-blocker": "/images/ext-focus.png",
+      "dima-focus-blocker": "/images/ext-focus.png",
       "dima-human-doc-typer": "/images/ext-autotyper.png",
       "zoande-brokersim": "/images/site/brokersim_app_icon.png",
       "dh-metrozone": "/images/site/metrozone_app_icon.png",

@@ -41,14 +41,8 @@
     "dh-metrozone": {
       type: "play",
       label: "Play MetroZone",
-      href: "https://metrozone.vercel.app",
+      href: "https://metrozoone.vercel.app/",
       note: "Live on Vercel — opens in a new tab."
-    },
-    "dh-citybuilder": {
-      type: "play",
-      label: "Play Project",
-      href: "../play/dh-citybuilder/index.html",
-      note: "Static project is copied directly from source."
     },
     "dh-task-sorter-app": {
       type: "run",
@@ -77,8 +71,14 @@
     "dh-swapspot": {
       type: "play",
       label: "Play Project",
-      href: "../play/dh-swapspot/",
-      note: "Static build is bundled in this workspace."
+      href: "https://swapspot-lime.vercel.app/",
+      note: "Live deployment on Vercel."
+    },
+    "zoande-paperpoly": {
+      type: "repo",
+      label: "View GitHub Repo",
+      href: "https://github.com/Zoande/paperpoly",
+      note: "Run locally with npm install, then npm start."
     }
   };
 

@@ -73,7 +73,7 @@ window.PROJECTS = [
     title: "MetroZone",
     owner: "Dima",
     repoUrl: "https://github.com/DH4410/MetroZone",
-    playUrl: "https://metrozone.vercel.app",
+    playUrl: "https://metrozoone.vercel.app/",
     localPath: "repos/DH4410__MetroZone",
     tech: ["Three.js", "ES Modules", "Procedural 3D", "HTML5/CSS3"],
     stage: "Live playable demo",
@@ -93,29 +93,40 @@ window.PROJECTS = [
       "Add save/load via localStorage so cities persist across sessions.",
       "Add a minimap for large city navigation.",
       "Add more building types: stadium, university, port."
+    ],
+    screenshots: [
+      "Hero slot — live MetroZone city with the HUD, traffic, and 3D grid visible.",
+      "Systems slot — build dock open with roads, zones, and unlocked building cards.",
+      "Event slot — a random event notification or level-up moment in the city."
     ]
   },
   {
-    id: "dh-citybuilder",
+    id: "zoande-citybuilder",
     title: "CityBuilder",
-    owner: "Dima",
-    repoUrl: "https://github.com/DH4410/CityBuilder",
-    localPath: "repos/DH4410__CityBuilder",
+    owner: "Zoande",
+    repoUrl: "https://github.com/Zoande/CityBuilder",
+    localPath: "repos/Zoande__CityBuilder",
     tech: ["Vanilla JS", "HTML5 Canvas", "CSS"],
     stage: "Browser prototype",
     summary:
-      "A megacity simulation in the browser with terrain generation, building categories, and camera controls.",
+      "A browser city-building simulation where procedural terrain, zoning, public services, and an evolving economy meet in one canvas-driven city.",
     details: [
       "Plain HTML, CSS, and JS - no build step needed.",
-      "README covers economy/service systems and controls.",
-      "Good candidate for a standalone playable demo."
+      "Procedural terrain generation produces water, grass, sand, and tree tiles.",
+      "Residential, commercial, industrial, and civic buildings connect to tax, budget, population, and service systems.",
+      "Canvas rendering is paired with smooth pan, zoom, edge-scrolling, and a day/night cycle."
     ],
     status:
-      "Simple static project. Easiest to package as a quick playable demo.",
+      "Static vanilla JavaScript project with no build step. Open index.html directly in a browser.",
     deliverableSteps: [
       "Add save/load via local storage.",
       "Add in-game onboarding for controls.",
       "Create performance presets for lower-end devices."
+    ],
+    screenshots: [
+      "Hero slot — overhead city view showing procedural terrain and the day/night lighting.",
+      "Systems slot — zoning/build menu with residential, commercial, industrial, and civic options.",
+      "Simulation slot — service coverage or economy overlay showing how the city is being managed."
     ]
   },
   {
@@ -219,11 +230,11 @@ window.PROJECTS = [
     tech: ["React", "TypeScript", "Vite", "Tailwind"],
     stage: "Playable game prototype",
     summary:
-      "A memory/swap game with difficulty progression, rounds, lives, scoring, settings, and audio feedback.",
+      "A memory challenge built around a simple trick: watch a grid, spot the swapped tiles, and keep a streak alive as the board grows.",
     details: [
       "Typed game state and round verification are in place.",
-      "Includes dark mode and modal overlays.",
-      "Code comments show iterative fixes and UI improvements."
+      "Six difficulty tiers scale from 3×3 to 10×10 boards and increase the number of swaps to find.",
+      "Lives, round scoring, streak bonuses, level-up overlays, dark mode, settings, and reactive sound feedback are wired in."
     ],
     status:
       "Most complete game architecture in the repo. Good candidate for polishing into a standout demo.",
@@ -231,6 +242,40 @@ window.PROJECTS = [
       "Add session persistence and a leaderboard.",
       "Finalize balancing across higher difficulty tiers.",
       "Add touch-first controls and mobile QA."
+    ],
+    screenshots: [
+      "Hero slot — Swapspot menu showing the pastel game identity and difficulty choices.",
+      "Gameplay slot — an active grid immediately after the tiles have been swapped.",
+      "Progression slot — score, lives, streak, or level-up feedback during a run."
+    ]
+  },
+  {
+    id: "zoande-paperpoly",
+    title: "paperpoly",
+    owner: "Zoande",
+    repoUrl: "https://github.com/Zoande/paperpoly",
+    localPath: "repos/Zoande__paperpoly",
+    tech: ["TypeScript", "Fastify", "WebSocket", "Node.js"],
+    stage: "Feature-complete v1",
+    summary:
+      "A local, drop-in Polymarket API stand-in for honest paper trading: live market data comes through, while every order stays simulated and auditable.",
+    details: [
+      "Emulates CLOB, Gamma, Data API, and WebSocket surfaces on four local ports so existing clients can point at paperpoly with only the host changed.",
+      "Market orders walk the live order book, resting orders inherit queue position, and fills record the exact book snapshot that justified them.",
+      "Paper accounts, order/trade lifecycle events, automatic settlement, configurable latency, retention profiles, and a realism report cover the full loop.",
+      "Safety is structural: state-changing upstream requests are intercepted, stale feeds pause fills, and paper orders never reach the real exchange."
+    ],
+    status:
+      "Feature-complete v1 across gateway, simulated trading, resting orders, WebSocket lifecycle, settlement, and reporting. Known approximations are documented in the reference guide.",
+    deliverableSteps: [
+      "Run the offline test suite and typecheck before connecting a client.",
+      "Use the audit or balanced logging profile when replayability matters.",
+      "Connect a paper bot or the example trading site and inspect the generated realism report."
+    ],
+    screenshots: [
+      "Hero slot — paperpoly architecture / four local emulated endpoints diagram.",
+      "Trading slot — example paper-trading UI showing a simulated order against a live book.",
+      "Audit slot — realism report or event log showing the evidence behind a fill."
     ]
   },
   {
@@ -269,9 +314,9 @@ window.PROJECTS = [
     ]
   },
   {
-    id: "pablo-focus-blocker",
+    id: "dima-focus-blocker",
     title: "Focus Blocker",
-    owner: "Pablo",
+    owner: "Dima",
     extUrl: "https://chromewebstore.google.com/detail/focus-blocker-dnr-redirec/dlbjkoeipepfliekbhiojgalkbdhhogi",
     edgeUrl: "https://microsoftedge.microsoft.com/addons/detail/focus-blocker-dnr-redire/blbdfgcopalolnckkhfbdnnfpmaillpl",
     chromeUrl: "https://chromewebstore.google.com/detail/focus-blocker-dnr-redirec/dlbjkoeipepfliekbhiojgalkbdhhogi",
